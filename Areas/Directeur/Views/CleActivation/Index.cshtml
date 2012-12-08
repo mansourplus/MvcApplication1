@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SoftSchool.Models.activation>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_directeur.cshtml";
+}
+<br />
+<br />
+<br />
+<h4><b>مفاتيح التشغيل</b></h4>
+
+
+<table dir="rtl" id="customers">
+    <tr>
+        <th>
+            المنظومة
+        </th>
+        <th>
+            رمز الخاص بالمستخدم
+        </th>
+        <th>
+            مفتاح التشغيل
+        </th>
+    </tr>
+    @{Boolean b = true; string alt = "";}
+@foreach (var item in Model) {
+    if (!b) { alt = "alt"; }
+    else { alt = ""; }
+    b = !b;
+    <tr class="@alt">
+        <td>
+            @Html.DisplayFor(modelItem => item.logiciels.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cle_Demander)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cle_Reponse)
+        </td>
+        
+    </tr>
+}
+
+</table>
+<br />
+<p>
+   <h5><b> @Html.ActionLink("طلب مفتاح تشغيل جديد", "DemandeCle")</b></h5>
+</p>

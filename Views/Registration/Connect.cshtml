@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Connect";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<fieldset>
+<legend>Conection</legend>
+<form method="post" action="/Registration/Verif">
+<input type="text" name="Login" id="Login"/>
+<input type="password" name="Password" id="Password"/>
+<input type="checkbox" name="Remember" id="Remember" value="Se souvenir de moi?" />
+<input type="submit" value="Connecter" />
+</form>
+</fieldset>

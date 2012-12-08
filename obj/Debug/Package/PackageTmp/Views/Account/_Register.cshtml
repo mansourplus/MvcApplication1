@@ -1,0 +1,196 @@
+﻿@model SoftSchool.Models.RegisterModel
+
+@{
+    ViewBag.Title = "Inscription";
+}
+<link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Direction").change(function () {
+            var idModel = $(this).val();
+            $.getJSON("/Account/GetVilles", { id: idModel },
+                    function (carData) {
+                        var select = $("#Ville");
+                        select.empty();
+                        var select1 = $("#IDLycees");
+                        select1.empty();
+                        select.append($('<option/>', {
+                            value: 0,
+                            text: "إختر المدينة..."
+                        }));
+                        $.each(carData, function (index, itemData) {
+
+                            select.append($('<option/>', {
+                                value: itemData.Value,
+                                text: itemData.Text
+                            }));
+                        });
+                    });
+        });
+        $("#Ville").change(function () {
+            var idColour = $(this).val();
+            $.getJSON("/Account/GetLycees", { id: idColour },
+                    function (modelData) {
+                        var select = $("#IDLycees");
+                        select.empty();
+                        select.append($('<option/>', {
+                            value: 0,
+                            text: "إختر المؤسسة..."
+                        }));
+                        $.each(modelData, function (index, itemData) {
+
+                            select.append($('<option/>', {
+                                value: itemData.Value,
+                                text: itemData.Text
+                            }));
+                        });
+                    });
+        });
+    });
+
+</script>
+
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <table dir="rtl">
+    <tr>
+        <td valign="top" align="left" width="110">
+            <div class="editor-label">
+                المندوبية الجهوية:
+            </div>
+        </td>
+        <td valign="bottom" >
+        <select id="Direction" name="Direction">
+        <option value="-1">إختر الممندوبية...</option>
+        @{
+            foreach(SoftSchool.Models.dres dre in ViewBag.Dres)
+            {
+                <option value="@dre.DreId">@dre.Nom_Ar</option>
+            }
+         }
+         </select>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" align="left">
+           <div class="editor-label">
+                المدينة:
+            </div>
+        </td>
+        <td valign="bottom" >
+            @Html.DropDownList("Ville", new SelectList(Enumerable.Empty<SelectListItem>(), "VilleID", "Nom_Ar"))
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" align="left">
+            <div class="editor-label">
+                المؤسسة التربوية:
+            </div>
+        </td>
+        <td valign="bottom" >
+        <div class="editor-field">
+             @Html.DropDownList("IDLycees", new SelectList(Enumerable.Empty<SelectListItem>(), "Code", "Nom"))
+            @Html.ValidationMessageFor(model => model.IDLycees)
+        </div>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" align="left">
+            <div class="editor-label">
+            الإسم:
+            </div>
+        </td>
+        <td valign="bottom" >
+            <div class="editor-field">
+            @Html.EditorFor(model => model.Nom)
+            @Html.ValidationMessageFor(model => model.Nom)
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" align="left">
+            <div class="editor-label">
+            اللقب:
+            </div>
+        </td>
+        <td valign="bottom" >
+            <div class="editor-field">
+            @Html.EditorFor(model => model.Prenom)
+            @Html.ValidationMessageFor(model => model.Prenom)
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" align="left">
+            <div class="editor-label">
+             البريد الإلكتروني:
+             
+             
+            </div>
+        </td>
+        
+        <td valign="bottom" >
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+                (إذا لم يكن لديك بريد الكتروني   <a href="https://accounts.google.com/SignUp?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F%3Ftab%3Dwm&ltmpl=default" target="_blank">اضغط هنا</a>)
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" align="left">
+            <div class="editor-label">
+            إسم المستخدم:
+            </div>
+        </td>
+        <td valign="bottom" >
+            <div class="editor-field">
+            @Html.EditorFor(model => model.UserName)
+            @Html.ValidationMessageFor(model => model.UserName)
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" align="left">
+            <div class="editor-label">
+                كلمة السر:
+            </div>
+        </td>
+        <td valign="bottom" >
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" align="left">
+            <div class="editor-label">
+                تأكيد كلمة السر:
+            </div>
+        </td>
+        <td valign="bottom" >
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ConfirmPassword)
+                @Html.ValidationMessageFor(model => model.ConfirmPassword)
+            </div>
+        </td>
+    </tr>
+    <!--
+    <tr>
+        <td valign="top" align="right">
+        </td>
+        <td valign="top">
+            <p>
+                <input type="submit" value="Inscrire" />
+            </p>
+        </td>
+    </tr>-->
+    </table>
+}

@@ -1,0 +1,65 @@
+﻿@model SoftSchool.Models.activation
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<br />
+<h4><b>Are Êtes-vous sûr de vouloir supprimer?</b></h4>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Supprimer" class="btn btn-danger delete"/>
+    </p>
+}
+<table id="customersadmin1">
+
+    <tr>
+<td width="150" class="alt">Logiciel:</td>
+<td>
+        @Html.DisplayFor(model => Model.logiciels.Nom)
+    </td>
+</tr>
+
+    <tr>
+<td class="alt">Lycées:</td>
+<td>
+        @Html.DisplayFor(model => model.utilisateur.lycees.Nom) 
+    </td>
+</tr>
+
+    <tr>
+<td class="alt">Utilisateur:</td>
+<td>
+        @Html.DisplayFor(model => model.utilisateur.Nom) @Html.DisplayFor(model => model.utilisateur.Prenom)
+    </td>
+</tr>
+
+    <tr>
+<td class="alt">Code:</td>
+<td>
+        @Html.DisplayFor(model => model.Cle_Demander)
+    </td>
+</tr>
+    <tr>
+<td class="alt">Date:</td>
+<td>
+        @Html.DisplayFor(model => model.date_demande)
+    </td>
+</tr>
+
+    <tr>
+<td class="alt">Clé d'activation:</td>
+<td>
+        @Html.DisplayFor(model => model.Cle_Reponse)
+    </td>
+</tr>
+    <tr>
+<td class="alt">Date Reponse:</td>
+<td>
+        @Html.DisplayFor(model => model.date_reponse)
+    </td>
+</tr>
+</table>
+<br /><br /><br /><br /><br /><br /><br /><br />

@@ -1,0 +1,30 @@
+﻿@model SoftSchool.Models.lycees
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detaille Lycée</h2>
+
+<fieldset>
+
+    <div class="display-label">Code</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Code)
+    </div>
+
+    <div class="display-label">Nom</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nom)
+    </div>
+
+    <div class="display-label">Villes</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.villes.Nom_Ar)
+    </div>
+</fieldset>
+<br /><br />
+<p>
+<a href="/Admin/Lycees/Edit/@Model.LyceeID" class="btn btn-primary start">Modifier</a> 
+    <a href="/Admin/Direction/Lycees/@ViewBag.DREID" class="btn btn-warning cancel">Retour</a></p>

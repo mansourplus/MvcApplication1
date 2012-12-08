@@ -1,0 +1,55 @@
+﻿@model SoftSchool.Models.lycees
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ajouter Lycées</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+     <table border="0" cellpadding="3" cellspacing="2">
+    <tr><td width="100" valign="top" align="right">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Code)
+        </div>
+        </td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Code)
+            @Html.ValidationMessageFor(model => model.Code)
+        </div>
+        </td></tr><tr><td align="right">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nom)
+        </div>
+        </td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nom)
+            @Html.ValidationMessageFor(model => model.Nom)
+        </div>
+        </td></tr><tr><td align="right">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VilleId, "Villes")
+        </div>
+        </td><td>
+        <div class="editor-field">
+            @Html.DropDownList("VilleId", String.Empty)
+            @Html.ValidationMessageFor(model => model.VilleId)
+        </div>
+        </td></tr><tr><td align="right">
+        </td><td>
+        <p>
+            <button type="submit" class="btn btn-primary start">
+                    <i class="icon-upload icon-white"></i>
+                    <span>Sauvgarder</span>
+                </button>
+            <a href="/Admin/Direction/Lycees/@ViewBag.DREID" class="btn btn-warning cancel">Retour</a>
+        </p>
+    </td></tr>
+        </table>
+}
+

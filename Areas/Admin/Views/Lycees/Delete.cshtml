@@ -1,0 +1,34 @@
+﻿@model SoftSchool.Models.lycees
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Êtes-vous sûr de vouloir supprimer?</h4>
+<fieldset>
+    <div class="display-label">Code</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Code)
+    </div>
+
+    <div class="display-label">Nom</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nom)
+    </div>
+
+    <div class="display-label">Villes</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.villes.Nom_Ar)
+    </div>
+</fieldset>
+<br /><br />
+@using (Html.BeginForm()) {
+    <p>
+    <button type="submit" class="btn btn-danger delete" value="Delete" >
+                    <i class="icon-upload icon-white"></i>
+                    <span>Delete</span>
+                </button>
+        <a href="/Admin/Direction/Lycees/@ViewBag.DREID" class="btn btn-warning cancel">Retour</a>
+    </p>
+}

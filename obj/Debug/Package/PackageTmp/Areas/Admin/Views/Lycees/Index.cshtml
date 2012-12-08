@@ -1,0 +1,46 @@
+﻿@model IEnumerable<SoftSchool.Models.lycees>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Code
+        </th>
+        <th>
+            Nom
+        </th>
+        <th>
+            Villes
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Villes.Nom_Ar)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LyceeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LyceeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LyceeID })
+        </td>
+    </tr>
+}
+
+</table>

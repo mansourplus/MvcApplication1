@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="MySqlMembershipConnection-Web.config Connection String" description="MySqlMembershipConnection Connection String used in web.config by the application to access the database." defaultvalue="Data Source=localhost;user id=root;password=root;database=dbsoftschool;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Site\ Soft-School\\SoftSchool\\MvcApplication1\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MySqlMembershipConnection']/@connectionString" />
+  </parameter>
+  <parameter name="dbsoftschoolEntities1-Web.config Connection String" description="dbsoftschoolEntities1 Connection String used in web.config by the application to access the database." defaultvalue="metadata=res://*/Models.Model4.csdl|res://*/Models.Model4.ssdl|res://*/Models.Model4.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=localhost;User Id=root;password=root;Persist Security Info=True;database=dbsoftschool&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Site\ Soft-School\\SoftSchool\\MvcApplication1\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='dbsoftschoolEntities1']/@connectionString" />
+  </parameter>
+</parameters>

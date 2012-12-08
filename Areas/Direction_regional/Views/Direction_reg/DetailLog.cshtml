@@ -1,0 +1,30 @@
+﻿@model SoftSchool.Models.logiciels
+
+@{
+    ViewBag.Title = Model.Nom;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="box1.alt" dir="rtl">
+    <div class="alt" >
+    <br />
+    <br />
+                <h2><b>@Model.Nom x</b></h2>
+                <br />
+                <img src="@Url.Content(@"~\" + Model.Image)"  width="100" height="100" />
+
+                <div class="display-field" dir="rtl">
+                @{
+                    HtmlString str = new HtmlString(Model.Descreption.Replace("\n", "<br />"));
+                 }
+                 <br />
+                    @str
+                </div>
+                <br />
+                <div class="display-field" >
+                   <h5> Prix: @Html.DisplayFor(model => model.Prix)</h5>
+                </div>
+    </div>
+</div>
+<br />
+    <br />
+

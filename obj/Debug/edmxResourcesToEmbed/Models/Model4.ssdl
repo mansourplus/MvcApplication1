@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbsoftschoolModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="dbsoftschoolModelStoreContainer">
+    <EntitySet Name="dres" EntityType="dbsoftschoolModel.Store.dres" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="gouvernorats" EntityType="dbsoftschoolModel.Store.gouvernorats" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="historiques" EntityType="dbsoftschoolModel.Store.historiques" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="logiciels" EntityType="dbsoftschoolModel.Store.logiciels" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="lycees" EntityType="dbsoftschoolModel.Store.lycees" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="my_aspnet_applications" EntityType="dbsoftschoolModel.Store.my_aspnet_applications" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="my_aspnet_membership" EntityType="dbsoftschoolModel.Store.my_aspnet_membership" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="my_aspnet_profiles" EntityType="dbsoftschoolModel.Store.my_aspnet_profiles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="my_aspnet_roles" EntityType="dbsoftschoolModel.Store.my_aspnet_roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="my_aspnet_sessioncleanup" EntityType="dbsoftschoolModel.Store.my_aspnet_sessioncleanup" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="my_aspnet_sessions" EntityType="dbsoftschoolModel.Store.my_aspnet_sessions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="my_aspnet_users" EntityType="dbsoftschoolModel.Store.my_aspnet_users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="my_aspnet_usersinroles" EntityType="dbsoftschoolModel.Store.my_aspnet_usersinroles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="utilisateur" EntityType="dbsoftschoolModel.Store.utilisateur" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="villes" EntityType="dbsoftschoolModel.Store.villes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="activation" EntityType="dbsoftschoolModel.Store.activation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="inbox" EntityType="dbsoftschoolModel.Store.inbox" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="outbox" EntityType="dbsoftschoolModel.Store.outbox" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_dresVilles" Association="dbsoftschoolModel.Store.FK_dresVilles">
+      <End Role="dres" EntitySet="dres" />
+      <End Role="villes" EntitySet="villes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gouvernoratsdres" Association="dbsoftschoolModel.Store.FK_gouvernoratsdres">
+      <End Role="gouvernorats" EntitySet="gouvernorats" />
+      <End Role="dres" EntitySet="dres" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lycees_FK02" Association="dbsoftschoolModel.Store.FK_Lycees_FK02">
+      <End Role="villes" EntitySet="villes" />
+      <End Role="lycees" EntitySet="lycees" />
+    </AssociationSet>
+    <AssociationSet Name="logicielsactivation" Association="dbsoftschoolModel.Store.logicielsactivation">
+      <End Role="logiciels" EntitySet="logiciels" />
+      <End Role="activation" EntitySet="activation" />
+    </AssociationSet>
+    <AssociationSet Name="utilisateurinbox" Association="dbsoftschoolModel.Store.utilisateurinbox">
+      <End Role="utilisateur" EntitySet="utilisateur" />
+      <End Role="inbox" EntitySet="inbox" />
+    </AssociationSet>
+    <AssociationSet Name="utilisateuroutbox" Association="dbsoftschoolModel.Store.utilisateuroutbox">
+      <End Role="utilisateur" EntitySet="utilisateur" />
+      <End Role="outbox" EntitySet="outbox" />
+    </AssociationSet>
+    <AssociationSet Name="utilisateuractivation" Association="dbsoftschoolModel.Store.utilisateuractivation">
+      <End Role="utilisateur" EntitySet="utilisateur" />
+      <End Role="activation" EntitySet="activation" />
+    </AssociationSet>
+    <AssociationSet Name="lyceesutilisateur" Association="dbsoftschoolModel.Store.lyceesutilisateur">
+      <End Role="lycees" EntitySet="lycees" />
+      <End Role="utilisateur" EntitySet="utilisateur" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="dres">
+    <Key>
+      <PropertyRef Name="DreId" />
+    </Key>
+    <Property Name="Nom_Ar" Type="longtext" Nullable="true" />
+    <Property Name="Nom_Fr" Type="longtext" Nullable="true" />
+    <Property Name="GovernoratID" Type="int" Nullable="false" />
+    <Property Name="DreId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="gouvernorats">
+    <Key>
+      <PropertyRef Name="GouvernoratID" />
+    </Key>
+    <Property Name="Nom_Ar" Type="longtext" Nullable="true" />
+    <Property Name="Nom_Fr" Type="longtext" Nullable="true" />
+    <Property Name="GouvernoratID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="historiques">
+    <Key>
+      <PropertyRef Name="HistoriqueId" />
+    </Key>
+    <Property Name="HistoriqueId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="longtext" Nullable="false" />
+    <Property Name="LogicielID" Type="int" Nullable="false" />
+    <Property Name="UtilisateurID" Type="int" Nullable="false" />
+    <Property Name="date_demande" Type="datetime" Nullable="false" />
+    <Property Name="date_reponse" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="logiciels">
+    <Key>
+      <PropertyRef Name="LogicielID" />
+    </Key>
+    <Property Name="LogicielID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="longtext" Nullable="false" />
+    <Property Name="Version" Type="longtext" Nullable="false" />
+    <Property Name="Image" Type="longtext" Nullable="false" />
+    <Property Name="Descreption" Type="longtext" Nullable="false" />
+    <Property Name="Prix" Type="longtext" Nullable="false" />
+    <Property Name="Lien" Type="longtext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="lycees">
+    <Key>
+      <PropertyRef Name="LyceeID" />
+    </Key>
+    <Property Name="Code" Type="longtext" Nullable="false" />
+    <Property Name="Nom" Type="longtext" Nullable="true" />
+    <Property Name="VilleId" Type="int" Nullable="false" />
+    <Property Name="LyceeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="my_aspnet_applications">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="longtext" Nullable="true" />
+    <Property Name="description" Type="longtext" Nullable="true" />
+  </EntityType>
+  <EntityType Name="my_aspnet_membership">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="int" Nullable="false" />
+    <Property Name="Email" Type="longtext" Nullable="true" />
+    <Property Name="Comment" Type="longtext" Nullable="true" />
+    <Property Name="Password" Type="longtext" Nullable="false" />
+    <Property Name="PasswordKey" Type="longtext" Nullable="true" />
+    <Property Name="PasswordFormat" Type="tinyint" Nullable="true" />
+    <Property Name="PasswordQuestion" Type="longtext" Nullable="true" />
+    <Property Name="PasswordAnswer" Type="longtext" Nullable="true" />
+    <Property Name="IsApproved" Type="bool" Nullable="true" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="true" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="true" />
+    <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="true" />
+    <Property Name="CreationDate" Type="datetime" Nullable="true" />
+    <Property Name="IsLockedOut" Type="bool" Nullable="true" />
+    <Property Name="LastLockedOutDate" Type="datetime" Nullable="true" />
+    <Property Name="FailedPasswordAttemptCount" Type="bigint" Nullable="true" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="true" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="bigint" Nullable="true" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="my_aspnet_profiles">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="int" Nullable="false" />
+    <Property Name="valueindex" Type="longtext" Nullable="true" />
+    <Property Name="stringdata" Type="longtext" Nullable="true" />
+    <Property Name="binarydata" Type="varbinary" Nullable="true" />
+    <Property Name="lastUpdatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="my_aspnet_roles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="applicationId" Type="int" Nullable="false" />
+    <Property Name="name" Type="longtext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="my_aspnet_sessioncleanup">
+    <Key>
+      <PropertyRef Name="LastRun" />
+      <PropertyRef Name="IntervalMinutes" />
+    </Key>
+    <Property Name="LastRun" Type="datetime" Nullable="false" />
+    <Property Name="IntervalMinutes" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="my_aspnet_sessions">
+    <Key>
+      <PropertyRef Name="SessionId" />
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="SessionId" Type="longtext" Nullable="false" />
+    <Property Name="ApplicationId" Type="int" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="Expires" Type="datetime" Nullable="false" />
+    <Property Name="LockDate" Type="datetime" Nullable="false" />
+    <Property Name="LockId" Type="int" Nullable="false" />
+    <Property Name="Timeout" Type="int" Nullable="false" />
+    <Property Name="Locked" Type="bool" Nullable="false" />
+    <Property Name="SessionItems" Type="varbinary" Nullable="true" />
+    <Property Name="Flags" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="my_aspnet_users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="applicationId" Type="int" Nullable="false" />
+    <Property Name="name" Type="longtext" Nullable="false" />
+    <Property Name="isAnonymous" Type="bool" Nullable="false" />
+    <Property Name="lastActivityDate" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="my_aspnet_usersinroles">
+    <Key>
+      <PropertyRef Name="userId" />
+      <PropertyRef Name="roleId" />
+    </Key>
+    <Property Name="userId" Type="int" Nullable="false" />
+    <Property Name="roleId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="utilisateur">
+    <Key>
+      <PropertyRef Name="IDuser" />
+    </Key>
+    <Property Name="IDuser" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="aspnet_user" Type="bigint" Nullable="false" />
+    <Property Name="Nom" Type="longtext" Nullable="false" />
+    <Property Name="Prenom" Type="longtext" Nullable="false" />
+    <Property Name="IDLycees" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="villes">
+    <Key>
+      <PropertyRef Name="VilleID" />
+    </Key>
+    <Property Name="Nom_Ar" Type="longtext" Nullable="false" />
+    <Property Name="Nom_Fr" Type="longtext" Nullable="true" />
+    <Property Name="DreID" Type="int" Nullable="false" />
+    <Property Name="VilleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="activation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LogicelId" Type="int" Nullable="false" />
+    <Property Name="Cle_Demander" Type="longtext" Nullable="true" />
+    <Property Name="Cle_Reponse" Type="longtext" Nullable="true" />
+    <Property Name="date_demande" Type="datetime" Nullable="true" />
+    <Property Name="date_reponse" Type="datetime" Nullable="true" />
+    <Property Name="IDuser" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="inbox">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Contact" Type="bigint" Nullable="true" />
+    <Property Name="subject" Type="longtext" Nullable="true" />
+    <Property Name="objet" Type="longtext" Nullable="true" />
+    <Property Name="LogicielID" Type="bigint" Nullable="true" />
+    <Property Name="cle" Type="longtext" Nullable="true" />
+    <Property Name="Reponse" Type="bool" Nullable="true" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="file" Type="longtext" Nullable="true" />
+    <Property Name="date_envoie" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="outbox">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="contact" Type="bigint" Nullable="true" />
+    <Property Name="subject" Type="longtext" Nullable="true" />
+    <Property Name="objet" Type="longtext" Nullable="true" />
+    <Property Name="cle" Type="longtext" Nullable="true" />
+    <Property Name="file" Type="longtext" Nullable="true" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="date_envoie" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_dresVilles">
+    <End Role="dres" Type="dbsoftschoolModel.Store.dres" Multiplicity="1" />
+    <End Role="villes" Type="dbsoftschoolModel.Store.villes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dres">
+        <PropertyRef Name="DreId" />
+      </Principal>
+      <Dependent Role="villes">
+        <PropertyRef Name="DreID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gouvernoratsdres">
+    <End Role="gouvernorats" Type="dbsoftschoolModel.Store.gouvernorats" Multiplicity="1" />
+    <End Role="dres" Type="dbsoftschoolModel.Store.dres" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gouvernorats">
+        <PropertyRef Name="GouvernoratID" />
+      </Principal>
+      <Dependent Role="dres">
+        <PropertyRef Name="GovernoratID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lycees_FK02">
+    <End Role="villes" Type="dbsoftschoolModel.Store.villes" Multiplicity="1" />
+    <End Role="lycees" Type="dbsoftschoolModel.Store.lycees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="villes">
+        <PropertyRef Name="VilleID" />
+      </Principal>
+      <Dependent Role="lycees">
+        <PropertyRef Name="VilleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="logicielsactivation">
+    <End Role="logiciels" Type="dbsoftschoolModel.Store.logiciels" Multiplicity="1" />
+    <End Role="activation" Type="dbsoftschoolModel.Store.activation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="logiciels">
+        <PropertyRef Name="LogicielID" />
+      </Principal>
+      <Dependent Role="activation">
+        <PropertyRef Name="LogicelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="utilisateurinbox">
+    <End Role="utilisateur" Type="dbsoftschoolModel.Store.utilisateur" Multiplicity="1" />
+    <End Role="inbox" Type="dbsoftschoolModel.Store.inbox" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="utilisateur">
+        <PropertyRef Name="IDuser" />
+      </Principal>
+      <Dependent Role="inbox">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="utilisateuroutbox">
+    <End Role="utilisateur" Type="dbsoftschoolModel.Store.utilisateur" Multiplicity="1" />
+    <End Role="outbox" Type="dbsoftschoolModel.Store.outbox" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="utilisateur">
+        <PropertyRef Name="IDuser" />
+      </Principal>
+      <Dependent Role="outbox">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="utilisateuractivation">
+    <End Role="utilisateur" Type="dbsoftschoolModel.Store.utilisateur" Multiplicity="1" />
+    <End Role="activation" Type="dbsoftschoolModel.Store.activation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="utilisateur">
+        <PropertyRef Name="IDuser" />
+      </Principal>
+      <Dependent Role="activation">
+        <PropertyRef Name="IDuser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="lyceesutilisateur">
+    <End Role="lycees" Type="dbsoftschoolModel.Store.lycees" Multiplicity="1" />
+    <End Role="utilisateur" Type="dbsoftschoolModel.Store.utilisateur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lycees">
+        <PropertyRef Name="LyceeID" />
+      </Principal>
+      <Dependent Role="utilisateur">
+        <PropertyRef Name="IDLycees" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

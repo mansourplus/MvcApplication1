@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SoftSchool.Models.lycees>
+
+@{
+    SoftSchool.Models.dres direction = ViewBag.dres;
+    ViewBag.Title = @direction.Nom_Ar.Trim();
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    
+}
+
+<h5><b>@ViewBag.Title</b></h5>
+
+<p>
+<a href="/Admin/Lycees/Create/@ViewBag.Dres.DreId" class="btn btn-primary start">Ajouter Lycés</a></p>
+<table id="customersadmin">
+    <tr>
+        <th>
+            Code
+        </th>
+        <th>
+            Nom
+        </th>
+        <th>
+            Ville
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.villes.Nom_Ar)
+        </td>
+        <td>
+           
+            <a href="/Admin/Lycees/Edit/@item.LyceeID" class="btn btn-success fileinput-button">Modifier</a> 
+            <a href="/Admin/Lycees/Details/@item.LyceeID" class="btn btn-primary start">Details</a> 
+            <a href="/Admin/Lycees/Delete/@item.LyceeID" class="btn btn-danger delete">Supprimer</a>
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,50 @@
+﻿@model SoftSchool.Models.inbox
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    SoftSchool.Models.Metier met = new SoftSchool.Models.Metier();
+}
+<br />
+<h5><b>Êtes-vous sûr de vouloir supprimer?</b></h5>
+<br />
+@using (Html.BeginForm()) {
+    <p>
+    <button type="submit" class="btn btn-danger delete" value="Delete" >
+                    <i class="icon-upload icon-white"></i>
+                    <span>Delete</span>
+                </button>
+        <a href="/Admin/AdminMail/OutBox" class="btn btn-warning cancel">Retour</a>
+      <!--  <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "OutBox")-->
+    </p>
+}
+
+<fieldset>
+
+    <div class="display-label">Contact</div>
+    <div class="display-field">
+        @met.getContactByLycéee(Model.Contact.Value) ==> @met.getContactByNom(Model.Contact.Value)
+        <br />
+        @Html.DisplayFor(model => model.date_envoie)
+    </div>
+
+    <div class="display-label">suject</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.subject)
+    </div>
+
+    <div class="display-label">0bjet</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.objet)
+    </div>
+
+   @if(Model.file!=null){
+        <div class="display-label">Pièce Jointe</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.file)
+        </div>
+    }
+    
+</fieldset>
+<br /><br />

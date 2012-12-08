@@ -1,0 +1,460 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBSoftSchoolModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="DBSoftSchoolModelStoreContainer">
+    <EntitySet Name="aspnet_Applications" EntityType="DBSoftSchoolModel.Store.aspnet_Applications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="aspnet_Membership" EntityType="DBSoftSchoolModel.Store.aspnet_Membership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="aspnet_Paths" EntityType="DBSoftSchoolModel.Store.aspnet_Paths" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="DBSoftSchoolModel.Store.aspnet_PersonalizationAllUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="DBSoftSchoolModel.Store.aspnet_PersonalizationPerUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="aspnet_Profile" EntityType="DBSoftSchoolModel.Store.aspnet_Profile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="aspnet_Roles" EntityType="DBSoftSchoolModel.Store.aspnet_Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="aspnet_SchemaVersions" EntityType="DBSoftSchoolModel.Store.aspnet_SchemaVersions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="aspnet_Users" EntityType="DBSoftSchoolModel.Store.aspnet_Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="aspnet_UsersInRoles" EntityType="DBSoftSchoolModel.Store.aspnet_UsersInRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="aspnet_WebEvent_Events" EntityType="DBSoftSchoolModel.Store.aspnet_WebEvent_Events" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dres" EntityType="DBSoftSchoolModel.Store.dres" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gouvernorats" EntityType="DBSoftSchoolModel.Store.gouvernorats" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Historiques" EntityType="DBSoftSchoolModel.Store.Historiques" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Logiciels" EntityType="DBSoftSchoolModel.Store.Logiciels" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lycees" EntityType="DBSoftSchoolModel.Store.Lycees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="DBSoftSchoolModel.Store.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Utilisateurs" EntityType="DBSoftSchoolModel.Store.Utilisateurs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Villes" EntityType="DBSoftSchoolModel.Store.Villes" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__aspnet_Me__Appli__5BAD9CC8" Association="DBSoftSchoolModel.Store.FK__aspnet_Me__Appli__5BAD9CC8">
+      <End EntitySet="aspnet_Applications" Role="aspnet_Applications" />
+      <End EntitySet="aspnet_Membership" Role="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Me__UserI__5CA1C101" Association="DBSoftSchoolModel.Store.FK__aspnet_Me__UserI__5CA1C101">
+      <End EntitySet="aspnet_Users" Role="aspnet_Users" />
+      <End EntitySet="aspnet_Membership" Role="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pa__Appli__14E61A24" Association="DBSoftSchoolModel.Store.FK__aspnet_Pa__Appli__14E61A24">
+      <End EntitySet="aspnet_Applications" Role="aspnet_Applications" />
+      <End EntitySet="aspnet_Paths" Role="aspnet_Paths" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__PathI__1C873BEC" Association="DBSoftSchoolModel.Store.FK__aspnet_Pe__PathI__1C873BEC">
+      <End EntitySet="aspnet_Paths" Role="aspnet_Paths" />
+      <End EntitySet="aspnet_PersonalizationAllUsers" Role="aspnet_PersonalizationAllUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__PathI__22401542" Association="DBSoftSchoolModel.Store.FK__aspnet_Pe__PathI__22401542">
+      <End EntitySet="aspnet_Paths" Role="aspnet_Paths" />
+      <End EntitySet="aspnet_PersonalizationPerUser" Role="aspnet_PersonalizationPerUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__UserI__2334397B" Association="DBSoftSchoolModel.Store.FK__aspnet_Pe__UserI__2334397B">
+      <End EntitySet="aspnet_Users" Role="aspnet_Users" />
+      <End EntitySet="aspnet_PersonalizationPerUser" Role="aspnet_PersonalizationPerUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pr__UserI__72910220" Association="DBSoftSchoolModel.Store.FK__aspnet_Pr__UserI__72910220">
+      <End EntitySet="aspnet_Users" Role="aspnet_Users" />
+      <End EntitySet="aspnet_Profile" Role="aspnet_Profile" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Ro__Appli__7E02B4CC" Association="DBSoftSchoolModel.Store.FK__aspnet_Ro__Appli__7E02B4CC">
+      <End EntitySet="aspnet_Applications" Role="aspnet_Applications" />
+      <End EntitySet="aspnet_Roles" Role="aspnet_Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__Appli__47A6A41B" Association="DBSoftSchoolModel.Store.FK__aspnet_Us__Appli__47A6A41B">
+      <End EntitySet="aspnet_Applications" Role="aspnet_Applications" />
+      <End EntitySet="aspnet_Users" Role="aspnet_Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__RoleI__04AFB25B" Association="DBSoftSchoolModel.Store.FK__aspnet_Us__RoleI__04AFB25B">
+      <End EntitySet="aspnet_Roles" Role="aspnet_Roles" />
+      <End EntitySet="aspnet_UsersInRoles" Role="aspnet_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__UserI__03BB8E22" Association="DBSoftSchoolModel.Store.FK__aspnet_Us__UserI__03BB8E22">
+      <End EntitySet="aspnet_Users" Role="aspnet_Users" />
+      <End EntitySet="aspnet_UsersInRoles" Role="aspnet_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dresVilles" Association="DBSoftSchoolModel.Store.FK_dresVilles">
+      <End EntitySet="dres" Role="dres" />
+      <End EntitySet="Villes" Role="Villes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gouvernoratsdres" Association="DBSoftSchoolModel.Store.FK_gouvernoratsdres">
+      <End EntitySet="gouvernorats" Role="gouvernorats" />
+      <End EntitySet="dres" Role="dres" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lycees_FK02" Association="DBSoftSchoolModel.Store.FK_Lycees_FK02">
+      <End EntitySet="Villes" Role="Villes" />
+      <End EntitySet="Lycees" Role="Lycees" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="aspnet_Applications">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationName" Nullable="false" MaxLength="256" Type="nvarchar" />
+    <Property Name="LoweredApplicationName" Nullable="false" MaxLength="256" Type="nvarchar" />
+    <Property Name="ApplicationId" Nullable="false" Type="uniqueidentifier" />
+    <Property Name="Description" MaxLength="256" Type="nvarchar" />
+  </EntityType>
+  <EntityType Name="aspnet_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Nullable="false" Type="uniqueidentifier" />
+    <Property Name="UserId" Nullable="false" Type="uniqueidentifier" />
+    <Property Name="Password" Nullable="false" MaxLength="128" Type="nvarchar" />
+    <Property Name="PasswordFormat" Nullable="false" Type="int" />
+    <Property Name="PasswordSalt" Nullable="false" MaxLength="128" Type="nvarchar" />
+    <Property Name="MobilePIN" MaxLength="16" Type="nvarchar" />
+    <Property Name="Email" MaxLength="256" Type="nvarchar" />
+    <Property Name="LoweredEmail" MaxLength="256" Type="nvarchar" />
+    <Property Name="PasswordQuestion" MaxLength="256" Type="nvarchar" />
+    <Property Name="PasswordAnswer" MaxLength="128" Type="nvarchar" />
+    <Property Name="IsApproved" Nullable="false" Type="bit" />
+    <Property Name="IsLockedOut" Nullable="false" Type="bit" />
+    <Property Name="CreateDate" Nullable="false" Type="datetime" />
+    <Property Name="LastLoginDate" Nullable="false" Type="datetime" />
+    <Property Name="LastPasswordChangedDate" Nullable="false" Type="datetime" />
+    <Property Name="LastLockoutDate" Nullable="false" Type="datetime" />
+    <Property Name="FailedPasswordAttemptCount" Nullable="false" Type="int" />
+    <Property Name="FailedPasswordAttemptWindowStart" Nullable="false" Type="datetime" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Nullable="false" Type="int" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Nullable="false" Type="datetime" />
+    <Property Name="Comment" Type="ntext" />
+    <Property Name="IDLycees" Type="int" />
+  </EntityType>
+  <EntityType Name="aspnet_Paths">
+    <Key>
+      <PropertyRef Name="PathId" />
+    </Key>
+    <Property Name="ApplicationId" Nullable="false" Type="uniqueidentifier" />
+    <Property Name="PathId" Nullable="false" Type="uniqueidentifier" />
+    <Property Name="Path" Nullable="false" MaxLength="256" Type="nvarchar" />
+    <Property Name="LoweredPath" Nullable="false" MaxLength="256" Type="nvarchar" />
+  </EntityType>
+  <EntityType Name="aspnet_PersonalizationAllUsers">
+    <Key>
+      <PropertyRef Name="PathId" />
+    </Key>
+    <Property Name="PathId" Nullable="false" Type="uniqueidentifier" />
+    <Property Name="PageSettings" Nullable="false" Type="image" />
+    <Property Name="LastUpdatedDate" Nullable="false" Type="datetime" />
+  </EntityType>
+  <EntityType Name="aspnet_PersonalizationPerUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Nullable="false" Type="uniqueidentifier" />
+    <Property Name="PathId" Type="uniqueidentifier" />
+    <Property Name="UserId" Type="uniqueidentifier" />
+    <Property Name="PageSettings" Nullable="false" Type="image" />
+    <Property Name="LastUpdatedDate" Nullable="false" Type="datetime" />
+  </EntityType>
+  <EntityType Name="aspnet_Profile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Nullable="false" Type="uniqueidentifier" />
+    <Property Name="PropertyNames" Nullable="false" Type="ntext" />
+    <Property Name="PropertyValuesString" Nullable="false" Type="ntext" />
+    <Property Name="PropertyValuesBinary" Nullable="false" Type="image" />
+    <Property Name="LastUpdatedDate" Nullable="false" Type="datetime" />
+  </EntityType>
+  <EntityType Name="aspnet_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="ApplicationId" Nullable="false" Type="uniqueidentifier" />
+    <Property Name="RoleId" Nullable="false" Type="uniqueidentifier" />
+    <Property Name="RoleName" Nullable="false" MaxLength="256" Type="nvarchar" />
+    <Property Name="LoweredRoleName" Nullable="false" MaxLength="256" Type="nvarchar" />
+    <Property Name="Description" MaxLength="256" Type="nvarchar" />
+  </EntityType>
+  <EntityType Name="aspnet_SchemaVersions">
+    <Key>
+      <PropertyRef Name="Feature" />
+      <PropertyRef Name="CompatibleSchemaVersion" />
+    </Key>
+    <Property Name="Feature" Nullable="false" MaxLength="128" Type="nvarchar" />
+    <Property Name="CompatibleSchemaVersion" Nullable="false" MaxLength="128" Type="nvarchar" />
+    <Property Name="IsCurrentVersion" Nullable="false" Type="bit" />
+  </EntityType>
+  <EntityType Name="aspnet_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Nullable="false" Type="uniqueidentifier" />
+    <Property Name="UserId" Nullable="false" Type="uniqueidentifier" />
+    <Property Name="UserName" Nullable="false" MaxLength="256" Type="nvarchar" />
+    <Property Name="LoweredUserName" Nullable="false" MaxLength="256" Type="nvarchar" />
+    <Property Name="MobileAlias" MaxLength="16" Type="nvarchar" />
+    <Property Name="IsAnonymous" Nullable="false" Type="bit" />
+    <Property Name="LastActivityDate" Nullable="false" Type="datetime" />
+    <Property Name="LyceeID" Type="int" />
+  </EntityType>
+  <EntityType Name="aspnet_UsersInRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Nullable="false" Type="uniqueidentifier" />
+    <Property Name="RoleId" Nullable="false" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="aspnet_WebEvent_Events">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Nullable="false" MaxLength="32" Type="char" />
+    <Property Name="EventTimeUtc" Nullable="false" Type="datetime" />
+    <Property Name="EventTime" Nullable="false" Type="datetime" />
+    <Property Name="EventType" Nullable="false" MaxLength="256" Type="nvarchar" />
+    <Property Name="EventSequence" Nullable="false" Precision="19" Type="decimal" />
+    <Property Name="EventOccurrence" Nullable="false" Precision="19" Type="decimal" />
+    <Property Name="EventCode" Nullable="false" Type="int" />
+    <Property Name="EventDetailCode" Nullable="false" Type="int" />
+    <Property Name="Message" MaxLength="1024" Type="nvarchar" />
+    <Property Name="ApplicationPath" MaxLength="256" Type="nvarchar" />
+    <Property Name="ApplicationVirtualPath" MaxLength="256" Type="nvarchar" />
+    <Property Name="MachineName" Nullable="false" MaxLength="256" Type="nvarchar" />
+    <Property Name="RequestUrl" MaxLength="1024" Type="nvarchar" />
+    <Property Name="ExceptionType" MaxLength="256" Type="nvarchar" />
+    <Property Name="Details" Type="ntext" />
+  </EntityType>
+  <EntityType Name="dres">
+    <Key>
+      <PropertyRef Name="DreId" />
+    </Key>
+    <Property Name="Nom_Ar" MaxLength="70" Type="nvarchar" />
+    <Property Name="Nom_Fr" MaxLength="70" Type="nvarchar" />
+    <Property Name="GovernoratID" Nullable="false" Type="int" />
+    <Property Name="DreId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+  </EntityType>
+  <EntityType Name="gouvernorats">
+    <Key>
+      <PropertyRef Name="GouvernoratID" />
+    </Key>
+    <Property Name="Nom_Ar" MaxLength="20" Type="nvarchar" />
+    <Property Name="Nom_Fr" MaxLength="20" Type="nvarchar" />
+    <Property Name="GouvernoratID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+  </EntityType>
+  <EntityType Name="Historiques">
+    <Key>
+      <PropertyRef Name="HistoriqueId" />
+    </Key>
+    <Property Name="HistoriqueId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Date" Nullable="false" Type="nvarchar(max)" />
+    <Property Name="LogicielID" Nullable="false" Type="int" />
+    <Property Name="UtilisateurID" Nullable="false" Type="int" />
+  </EntityType>
+  <EntityType Name="Logiciels">
+    <Key>
+      <PropertyRef Name="LogicielID" />
+    </Key>
+    <Property Name="LogicielID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Nom" Nullable="false" Type="nvarchar(max)" />
+    <Property Name="Version" Nullable="false" Type="nvarchar(max)" />
+    <Property Name="Image" Nullable="false" Type="nvarchar(max)" />
+    <Property Name="Descreption" Nullable="false" Type="nvarchar(max)" />
+    <Property Name="Prix" Nullable="false" Type="nvarchar(max)" />
+    <Property Name="Lien" Nullable="false" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Lycees">
+    <Key>
+      <PropertyRef Name="LyceeID" />
+    </Key>
+    <Property Name="Code" Nullable="false" MaxLength="10" Type="nvarchar" />
+    <Property Name="Nom" MaxLength="70" Type="nvarchar" />
+    <Property Name="VilleId" Nullable="false" Type="int" />
+    <Property Name="LyceeID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Nullable="false" MaxLength="128" Type="nvarchar" />
+    <Property Name="principal_id" Nullable="false" Type="int" />
+    <Property Name="diagram_id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Utilisateurs">
+    <Key>
+      <PropertyRef Name="UtilisateurId" />
+    </Key>
+    <Property Name="UtilisateurId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Nom" Nullable="false" Type="nvarchar(max)" />
+    <Property Name="Prenom" Nullable="false" Type="nvarchar(max)" />
+    <Property Name="Login" Nullable="false" Type="nvarchar(max)" />
+    <Property Name="Password" Nullable="false" Type="nvarchar(max)" />
+    <Property Name="LyceeID" Nullable="false" Type="int" />
+  </EntityType>
+  <EntityType Name="Villes">
+    <Key>
+      <PropertyRef Name="VilleID" />
+    </Key>
+    <Property Name="Nom_Ar" Nullable="false" MaxLength="30" Type="nvarchar" />
+    <Property Name="Nom_Fr" MaxLength="30" Type="nvarchar" />
+    <Property Name="DreID" Nullable="false" Type="int" />
+    <Property Name="VilleID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+  </EntityType>
+  <Association Name="FK__aspnet_Me__Appli__5BAD9CC8">
+    <End Type="DBSoftSchoolModel.Store.aspnet_Applications" Multiplicity="1" Role="aspnet_Applications" />
+    <End Type="DBSoftSchoolModel.Store.aspnet_Membership" Multiplicity="*" Role="aspnet_Membership" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Me__UserI__5CA1C101">
+    <End Type="DBSoftSchoolModel.Store.aspnet_Users" Multiplicity="1" Role="aspnet_Users" />
+    <End Type="DBSoftSchoolModel.Store.aspnet_Membership" Multiplicity="0..1" Role="aspnet_Membership" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pa__Appli__14E61A24">
+    <End Type="DBSoftSchoolModel.Store.aspnet_Applications" Multiplicity="1" Role="aspnet_Applications" />
+    <End Type="DBSoftSchoolModel.Store.aspnet_Paths" Multiplicity="*" Role="aspnet_Paths" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Paths">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__PathI__1C873BEC">
+    <End Type="DBSoftSchoolModel.Store.aspnet_Paths" Multiplicity="1" Role="aspnet_Paths" />
+    <End Type="DBSoftSchoolModel.Store.aspnet_PersonalizationAllUsers" Multiplicity="0..1" Role="aspnet_PersonalizationAllUsers" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Paths">
+        <PropertyRef Name="PathId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationAllUsers">
+        <PropertyRef Name="PathId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__PathI__22401542">
+    <End Type="DBSoftSchoolModel.Store.aspnet_Paths" Multiplicity="0..1" Role="aspnet_Paths" />
+    <End Type="DBSoftSchoolModel.Store.aspnet_PersonalizationPerUser" Multiplicity="*" Role="aspnet_PersonalizationPerUser" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Paths">
+        <PropertyRef Name="PathId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationPerUser">
+        <PropertyRef Name="PathId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__UserI__2334397B">
+    <End Type="DBSoftSchoolModel.Store.aspnet_Users" Multiplicity="0..1" Role="aspnet_Users" />
+    <End Type="DBSoftSchoolModel.Store.aspnet_PersonalizationPerUser" Multiplicity="*" Role="aspnet_PersonalizationPerUser" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationPerUser">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pr__UserI__72910220">
+    <End Type="DBSoftSchoolModel.Store.aspnet_Users" Multiplicity="1" Role="aspnet_Users" />
+    <End Type="DBSoftSchoolModel.Store.aspnet_Profile" Multiplicity="0..1" Role="aspnet_Profile" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Profile">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Ro__Appli__7E02B4CC">
+    <End Type="DBSoftSchoolModel.Store.aspnet_Applications" Multiplicity="1" Role="aspnet_Applications" />
+    <End Type="DBSoftSchoolModel.Store.aspnet_Roles" Multiplicity="*" Role="aspnet_Roles" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Roles">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__Appli__47A6A41B">
+    <End Type="DBSoftSchoolModel.Store.aspnet_Applications" Multiplicity="1" Role="aspnet_Applications" />
+    <End Type="DBSoftSchoolModel.Store.aspnet_Users" Multiplicity="*" Role="aspnet_Users" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Users">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__RoleI__04AFB25B">
+    <End Type="DBSoftSchoolModel.Store.aspnet_Roles" Multiplicity="1" Role="aspnet_Roles" />
+    <End Type="DBSoftSchoolModel.Store.aspnet_UsersInRoles" Multiplicity="*" Role="aspnet_UsersInRoles" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="aspnet_UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__UserI__03BB8E22">
+    <End Type="DBSoftSchoolModel.Store.aspnet_Users" Multiplicity="1" Role="aspnet_Users" />
+    <End Type="DBSoftSchoolModel.Store.aspnet_UsersInRoles" Multiplicity="*" Role="aspnet_UsersInRoles" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dresVilles">
+    <End Type="DBSoftSchoolModel.Store.dres" Multiplicity="1" Role="dres" />
+    <End Type="DBSoftSchoolModel.Store.Villes" Multiplicity="*" Role="Villes" />
+    <ReferentialConstraint>
+      <Principal Role="dres">
+        <PropertyRef Name="DreId" />
+      </Principal>
+      <Dependent Role="Villes">
+        <PropertyRef Name="DreID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gouvernoratsdres">
+    <End Type="DBSoftSchoolModel.Store.gouvernorats" Multiplicity="1" Role="gouvernorats" />
+    <End Type="DBSoftSchoolModel.Store.dres" Multiplicity="*" Role="dres" />
+    <ReferentialConstraint>
+      <Principal Role="gouvernorats">
+        <PropertyRef Name="GouvernoratID" />
+      </Principal>
+      <Dependent Role="dres">
+        <PropertyRef Name="GovernoratID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lycees_FK02">
+    <End Type="DBSoftSchoolModel.Store.Villes" Multiplicity="1" Role="Villes">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DBSoftSchoolModel.Store.Lycees" Multiplicity="*" Role="Lycees" />
+    <ReferentialConstraint>
+      <Principal Role="Villes">
+        <PropertyRef Name="VilleID" />
+      </Principal>
+      <Dependent Role="Lycees">
+        <PropertyRef Name="VilleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

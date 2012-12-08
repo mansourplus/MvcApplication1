@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "charger";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@using Microsoft.Web.Helpers
+<h2>charger</h2>
+@FileUpload.GetHtml(
+            initialNumberOfFiles: 2, 
+            allowMoreFilesToBeAdded: true, 
+            includeFormTag: true, 
+            addText: "Add another file", 
+            uploadText: "Upload")
+@using (Html.BeginForm("Recive", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div>
+
+        
+
+</div>
+}

@@ -1,0 +1,135 @@
+﻿@model IEnumerable<SoftSchool.Models.outbox>
+
+@{
+    ViewBag.Title = "InBox";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    SoftSchool.Models.Metier met = new SoftSchool.Models.Metier();
+}
+<h5><b>Boite de Réception</b></h5>
+<table id="customersadmin">
+    <tr>
+        <th width="150">
+            Lycée
+        </th>
+       <th  width="150">
+            Contact
+        </th>
+        <th width="80">
+            Date
+        </th>
+        <th width="170">
+            Sujet
+        </th>
+        <th>
+            Objet
+        </th>
+       <!-- <th>
+            Fichier Joint
+        </th>
+        -->
+        <th width="120"></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+     string alt = "";
+    if (item.contact == null)
+    {
+        alt = "alt";
+    }
+    <tr class="@alt">
+        <td >
+             @met.getContactByLycéee(item.UserId)
+        </td>
+         <td>
+             @met.getContactByNom(item.UserId)
+        </td>
+        <td >
+            @item.date_envoie.ToShortDateString()
+            
+        </td>
+        <td>
+        @if (item.subject != null)
+            {
+                string sobj = item.subject;
+                if (sobj.Length >= 25)
+                {
+                    sobj = item.subject.Substring(0, 25);
+                    sobj += "...";
+                }
+            @sobj
+            }
+            @{
+       if (item.file != null)
+       { 
+            <img src="@Url.Content("~/Content/images/piece-jointe.png")" alt="@item.file"/>
+       }
+             }
+        </td>
+        <td >
+            @if (item.objet != null)
+            {
+                string obj = item.objet;
+                if (obj.Length >= 90)
+                {
+                    obj = item.objet.Substring(0, 90);
+                    obj += "...";
+                }
+            @obj
+            }
+        </td>
+        <!--
+        <td width="30">
+            @Html.DisplayFor(modelItem => item.file)
+        </td>
+        -->
+        <td>
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Supprimer", "Delete", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>
+
+@{
+    if (ViewBag.NbrPage != 1)
+    {
+        <div class="pagination">
+        @for (int i = 1; i <= ViewBag.NbrPage; i++)
+        {
+            if (i != ViewBag.current)
+            {
+		        <a href="/Admin/AdminMail/InBox/?page=@i" class="page gradient">@i</a>
+            }
+            else
+            {
+                <a class="page active">@i</a>
+            }
+        }
+        </div>
+    }
+    else
+    {
+        <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+     <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+     <br />
+    <br />
+    <br />
+    <br />
+   }
+}

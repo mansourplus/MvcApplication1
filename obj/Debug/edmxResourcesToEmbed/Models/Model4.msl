@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbsoftschoolModelStoreContainer" CdmEntityContainer="dbsoftschoolEntities1">
+    <EntitySetMapping Name="dres">
+      <EntityTypeMapping TypeName="IsTypeOf(dbsoftschoolModel.dres)">
+        <MappingFragment StoreEntitySet="dres">
+          <ScalarProperty Name="DreId" ColumnName="DreId" />
+          <ScalarProperty Name="Nom_Ar" ColumnName="Nom_Ar" />
+          <ScalarProperty Name="Nom_Fr" ColumnName="Nom_Fr" />
+          <ScalarProperty Name="GovernoratID" ColumnName="GovernoratID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gouvernorats">
+      <EntityTypeMapping TypeName="IsTypeOf(dbsoftschoolModel.gouvernorats)">
+        <MappingFragment StoreEntitySet="gouvernorats">
+          <ScalarProperty Name="GouvernoratID" ColumnName="GouvernoratID" />
+          <ScalarProperty Name="Nom_Ar" ColumnName="Nom_Ar" />
+          <ScalarProperty Name="Nom_Fr" ColumnName="Nom_Fr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="historiques">
+      <EntityTypeMapping TypeName="IsTypeOf(dbsoftschoolModel.historiques)">
+        <MappingFragment StoreEntitySet="historiques">
+          <ScalarProperty Name="HistoriqueId" ColumnName="HistoriqueId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="LogicielID" ColumnName="LogicielID" />
+          <ScalarProperty Name="UtilisateurID" ColumnName="UtilisateurID" />
+          <ScalarProperty Name="date_demande" ColumnName="date_demande" />
+          <ScalarProperty Name="date_reponse" ColumnName="date_reponse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="logiciels">
+      <EntityTypeMapping TypeName="IsTypeOf(dbsoftschoolModel.logiciels)">
+        <MappingFragment StoreEntitySet="logiciels">
+          <ScalarProperty Name="LogicielID" ColumnName="LogicielID" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Descreption" ColumnName="Descreption" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="Lien" ColumnName="Lien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lycees">
+      <EntityTypeMapping TypeName="IsTypeOf(dbsoftschoolModel.lycees)">
+        <MappingFragment StoreEntitySet="lycees">
+          <ScalarProperty Name="LyceeID" ColumnName="LyceeID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="VilleId" ColumnName="VilleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="my_aspnet_applications">
+      <EntityTypeMapping TypeName="IsTypeOf(dbsoftschoolModel.my_aspnet_applications)">
+        <MappingFragment StoreEntitySet="my_aspnet_applications">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="my_aspnet_membership">
+      <EntityTypeMapping TypeName="IsTypeOf(dbsoftschoolModel.my_aspnet_membership)">
+        <MappingFragment StoreEntitySet="my_aspnet_membership">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordKey" ColumnName="PasswordKey" />
+          <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+          <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+          <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+          <ScalarProperty Name="LastLockedOutDate" ColumnName="LastLockedOutDate" />
+          <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+          <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="my_aspnet_profiles">
+      <EntityTypeMapping TypeName="IsTypeOf(dbsoftschoolModel.my_aspnet_profiles)">
+        <MappingFragment StoreEntitySet="my_aspnet_profiles">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="valueindex" ColumnName="valueindex" />
+          <ScalarProperty Name="stringdata" ColumnName="stringdata" />
+          <ScalarProperty Name="binarydata" ColumnName="binarydata" />
+          <ScalarProperty Name="lastUpdatedDate" ColumnName="lastUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="my_aspnet_roles">
+      <EntityTypeMapping TypeName="IsTypeOf(dbsoftschoolModel.my_aspnet_roles)">
+        <MappingFragment StoreEntitySet="my_aspnet_roles">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="applicationId" ColumnName="applicationId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="my_aspnet_sessioncleanup">
+      <EntityTypeMapping TypeName="IsTypeOf(dbsoftschoolModel.my_aspnet_sessioncleanup)">
+        <MappingFragment StoreEntitySet="my_aspnet_sessioncleanup">
+          <ScalarProperty Name="LastRun" ColumnName="LastRun" />
+          <ScalarProperty Name="IntervalMinutes" ColumnName="IntervalMinutes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="my_aspnet_sessions">
+      <EntityTypeMapping TypeName="IsTypeOf(dbsoftschoolModel.my_aspnet_sessions)">
+        <MappingFragment StoreEntitySet="my_aspnet_sessions">
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Expires" ColumnName="Expires" />
+          <ScalarProperty Name="LockDate" ColumnName="LockDate" />
+          <ScalarProperty Name="LockId" ColumnName="LockId" />
+          <ScalarProperty Name="Timeout" ColumnName="Timeout" />
+          <ScalarProperty Name="Locked" ColumnName="Locked" />
+          <ScalarProperty Name="SessionItems" ColumnName="SessionItems" />
+          <ScalarProperty Name="Flags" ColumnName="Flags" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="my_aspnet_users">
+      <EntityTypeMapping TypeName="IsTypeOf(dbsoftschoolModel.my_aspnet_users)">
+        <MappingFragment StoreEntitySet="my_aspnet_users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="applicationId" ColumnName="applicationId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="isAnonymous" ColumnName="isAnonymous" />
+          <ScalarProperty Name="lastActivityDate" ColumnName="lastActivityDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="my_aspnet_usersinroles">
+      <EntityTypeMapping TypeName="IsTypeOf(dbsoftschoolModel.my_aspnet_usersinroles)">
+        <MappingFragment StoreEntitySet="my_aspnet_usersinroles">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="utilisateur">
+      <EntityTypeMapping TypeName="IsTypeOf(dbsoftschoolModel.utilisateur)">
+        <MappingFragment StoreEntitySet="utilisateur">
+          <ScalarProperty Name="IDuser" ColumnName="IDuser" />
+          <ScalarProperty Name="aspnet_user" ColumnName="aspnet_user" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="IDLycees" ColumnName="IDLycees" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="villes">
+      <EntityTypeMapping TypeName="IsTypeOf(dbsoftschoolModel.villes)">
+        <MappingFragment StoreEntitySet="villes">
+          <ScalarProperty Name="VilleID" ColumnName="VilleID" />
+          <ScalarProperty Name="Nom_Ar" ColumnName="Nom_Ar" />
+          <ScalarProperty Name="Nom_Fr" ColumnName="Nom_Fr" />
+          <ScalarProperty Name="DreID" ColumnName="DreID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="activation">
+      <EntityTypeMapping TypeName="IsTypeOf(dbsoftschoolModel.activation)">
+        <MappingFragment StoreEntitySet="activation">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LogicelId" ColumnName="LogicelId" />
+          <ScalarProperty Name="Cle_Demander" ColumnName="Cle_Demander" />
+          <ScalarProperty Name="Cle_Reponse" ColumnName="Cle_Reponse" />
+          <ScalarProperty Name="date_demande" ColumnName="date_demande" />
+          <ScalarProperty Name="date_reponse" ColumnName="date_reponse" />
+          <ScalarProperty Name="IDuser" ColumnName="IDuser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inbox">
+      <EntityTypeMapping TypeName="IsTypeOf(dbsoftschoolModel.inbox)">
+        <MappingFragment StoreEntitySet="inbox">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="objet" ColumnName="objet" />
+          <ScalarProperty Name="LogicielID" ColumnName="LogicielID" />
+          <ScalarProperty Name="cle" ColumnName="cle" />
+          <ScalarProperty Name="Reponse" ColumnName="Reponse" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="file" ColumnName="file" />
+          <ScalarProperty Name="date_envoie" ColumnName="date_envoie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="outbox">
+      <EntityTypeMapping TypeName="IsTypeOf(dbsoftschoolModel.outbox)">
+        <MappingFragment StoreEntitySet="outbox">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="objet" ColumnName="objet" />
+          <ScalarProperty Name="cle" ColumnName="cle" />
+          <ScalarProperty Name="file" ColumnName="file" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="date_envoie" ColumnName="date_envoie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,10 @@
+﻿@model String[]
+
+@{
+  <select id="VilleID" name="VilleID">
+  @foreach(var item in Model)
+  {
+      <option value="@item">@item</option>
+  }
+  </select>  
+  }

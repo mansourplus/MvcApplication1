@@ -1,0 +1,115 @@
+﻿@model IEnumerable<SoftSchool.Models.outbox>
+
+@{
+    ViewBag.Title = "outbox";
+    Layout = "~/Views/Shared/_Layout_directeur.cshtml";
+}
+<h4><b>الصادرات</b></h4>
+<b>
+    <a href="/Directeur/Mail/Send" class="btn btn-warning cancel">جديد</a>
+    <a href="/Directeur/Mail" class="btn btn-warning cancel">الواردات</a>
+    <a href="/Directeur/Mail/outbox" class="btn btn-warning cancel">الصادرات</a>
+</b>
+
+<table id="customers">
+    <tr>
+        
+        <th width="150">
+            الموضوع
+        </th>
+        <th width="300">
+            المحتوى
+        </th>
+        
+        <th width="150">
+            الوثائق المرفقة
+        </th>
+        <th width="100">
+            تاريخ الإصدار
+        </th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+           <a href="/Directeur/Mail/Detailsoutbox/@item.id">@Html.DisplayFor(modelItem => item.subject)</a> 
+        </td>
+        <td>
+        @if (item.objet!=null){
+            string obj = item.objet;
+            if (obj.Length >= 90)
+            {
+                obj = item.objet.Substring(0, 90);
+                    obj += "...";
+            }
+            @obj
+        }
+            
+
+        </td>
+        <td>
+        @{
+        if (item.file != null)
+        {
+            string file = item.file;
+            if (file.Length >= 30)
+            {
+                file = item.file.Substring(item.file.Length - 30, 30);
+            }
+                @file
+        }
+        }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_envoie)
+        </td>
+        
+    </tr>
+}
+
+</table>
+
+
+
+@{
+    if (ViewBag.NbrPage != 1)
+    {
+        <div class="pagination">
+        @for (int i = 1; i <= ViewBag.NbrPage; i++)
+        {
+            if (i != ViewBag.current)
+            {
+		        <a href="/Directeur/Mail/outbox/?page=@i" class="page gradient">@i</a>
+            }
+            else
+            {
+                <a class="page active">@i</a>
+            }
+        }
+        </div>
+    }
+    else
+    {
+        <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+     <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+     <br />
+    <br />
+    <br />
+    <br />
+   }
+}

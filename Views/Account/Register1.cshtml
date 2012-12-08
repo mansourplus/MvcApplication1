@@ -1,0 +1,105 @@
+﻿@model SoftSchool.Models.RegisterModel
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Direction").change(function () {
+            var idModel = $(this).val();
+            $.getJSON("/Account/GetVilles", { id: idModel },
+                    function (carData) {
+                        var select = $("#Ville");
+                        select.empty();
+                        select.append($('<option/>', {
+                            value: 0,
+                            text: "..."
+                        }));
+                        $.each(carData, function (index, itemData) {
+
+                            select.append($('<option/>', {
+                                value: itemData.Value,
+                                text: itemData.Text
+                            }));
+                        });
+                    });
+        });
+                $("#Ville").change(function () {
+            var idColour = $(this).val();
+            $.getJSON("/Account/GetLycees", { id: idColour },
+                    function (modelData) {
+                        var select = $("#IDLycees");
+                        select.empty();
+                        select.append($('<option/>', {
+                            value: 0,
+                            text: "..."
+                        }));
+                        $.each(modelData, function (index, itemData) {
+
+                            select.append($('<option/>', {
+                                value: itemData.Value,
+                                text: itemData.Text
+                            }));
+                        });
+                    });
+        });
+    });
+
+</script>
+
+
+
+<h2>Create a New Account</h2>
+<p>
+    Use the form below to create a new account. 
+</p>
+<p>
+    Passwords are required to be a minimum of @Membership.MinRequiredPasswordLength characters in length.
+</p>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true, "Account creation was unsuccessful. Please correct the errors and try again.")
+    <div>
+        <fieldset>
+            <legend>Account Information</legend>
+
+            <div class="editor-label">
+            @Html.DropDownList("Direction", new SelectList(ViewBag.Dres as System.Collections.IEnumerable, "DreID", "Nom_Ar"))
+             @Html.DropDownList("Ville", new SelectList(Enumerable.Empty<SelectListItem>(), "VilleID", "Nom_Ar"))
+              @Html.DropDownList("IDLycees", new SelectList(Enumerable.Empty<SelectListItem>(), "Code", "Nom"))
+            
+            </div>
+            <div class="editor-field">
+            
+            </div>
+
+            <div class="editor-label">
+            </div>
+            <div class="editor-field">
+            </div>
+
+            <div class="editor-label">
+            </div>
+            <div class="editor-field">
+            </div>
+
+            <div class="editor-label">
+            </div>
+            <div class="editor-field">
+            </div>
+
+            <div class="editor-label">
+            </div>
+            <div class="editor-field">
+            </div>
+
+            <p>
+                <input type="submit" value="Register" />
+            </p>
+        </fieldset>
+    </div>
+}
+
+
+

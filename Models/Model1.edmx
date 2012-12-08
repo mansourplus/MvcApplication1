@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBSoftSchoolModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DBSoftSchoolModelStoreContainer">
+          <EntitySet Name="dres" EntityType="DBSoftSchoolModel.Store.dres" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="gouvernorats" EntityType="DBSoftSchoolModel.Store.gouvernorats" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Historiques" EntityType="DBSoftSchoolModel.Store.Historiques" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Logiciels" EntityType="DBSoftSchoolModel.Store.Logiciels" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Lycees" EntityType="DBSoftSchoolModel.Store.Lycees" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Utilisateurs" EntityType="DBSoftSchoolModel.Store.Utilisateurs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Villes" EntityType="DBSoftSchoolModel.Store.Villes" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_dresVilles" Association="DBSoftSchoolModel.Store.FK_dresVilles">
+            <End Role="dres" EntitySet="dres" />
+            <End Role="Villes" EntitySet="Villes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gouvernoratsdres" Association="DBSoftSchoolModel.Store.FK_gouvernoratsdres">
+            <End Role="gouvernorats" EntitySet="gouvernorats" />
+            <End Role="dres" EntitySet="dres" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LogicielsHistorique" Association="DBSoftSchoolModel.Store.FK_LogicielsHistorique">
+            <End Role="Logiciels" EntitySet="Logiciels" />
+            <End Role="Historiques" EntitySet="Historiques" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lycees_FK02" Association="DBSoftSchoolModel.Store.FK_Lycees_FK02">
+            <End Role="Villes" EntitySet="Villes" />
+            <End Role="Lycees" EntitySet="Lycees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LyceesUtilisateurs" Association="DBSoftSchoolModel.Store.FK_LyceesUtilisateurs">
+            <End Role="Lycees" EntitySet="Lycees" />
+            <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UtilisateursHistorique" Association="DBSoftSchoolModel.Store.FK_UtilisateursHistorique">
+            <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+            <End Role="Historiques" EntitySet="Historiques" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="dres">
+          <Key>
+            <PropertyRef Name="DreId" />
+          </Key>
+          <Property Name="Nom_Ar" Type="nvarchar" MaxLength="70" />
+          <Property Name="Nom_Fr" Type="nvarchar" MaxLength="70" />
+          <Property Name="GovernoratID" Type="int" Nullable="false" />
+          <Property Name="DreId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="gouvernorats">
+          <Key>
+            <PropertyRef Name="GouvernoratID" />
+          </Key>
+          <Property Name="Nom_Ar" Type="nvarchar" MaxLength="20" />
+          <Property Name="Nom_Fr" Type="nvarchar" MaxLength="20" />
+          <Property Name="GouvernoratID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Historiques">
+          <Key>
+            <PropertyRef Name="HistoriqueId" />
+          </Key>
+          <Property Name="HistoriqueId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LogicielID" Type="int" Nullable="false" />
+          <Property Name="UtilisateurID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Logiciels">
+          <Key>
+            <PropertyRef Name="LogicielID" />
+          </Key>
+          <Property Name="LogicielID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Version" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Descreption" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Prix" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Lien" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lycees">
+          <Key>
+            <PropertyRef Name="LyceeID" />
+          </Key>
+          <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="6" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="70" />
+          <Property Name="VilleId" Type="int" Nullable="false" />
+          <Property Name="LyceeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Utilisateurs">
+          <Key>
+            <PropertyRef Name="UtilisateurId" />
+          </Key>
+          <Property Name="UtilisateurId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Prenom" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LyceeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Villes">
+          <Key>
+            <PropertyRef Name="VilleID" />
+          </Key>
+          <Property Name="Nom_Ar" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="Nom_Fr" Type="nvarchar" MaxLength="30" />
+          <Property Name="DreID" Type="int" Nullable="false" />
+          <Property Name="VilleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <Association Name="FK_dresVilles">
+          <End Role="dres" Type="DBSoftSchoolModel.Store.dres" Multiplicity="1" />
+          <End Role="Villes" Type="DBSoftSchoolModel.Store.Villes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dres">
+              <PropertyRef Name="DreId" />
+            </Principal>
+            <Dependent Role="Villes">
+              <PropertyRef Name="DreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gouvernoratsdres">
+          <End Role="gouvernorats" Type="DBSoftSchoolModel.Store.gouvernorats" Multiplicity="1" />
+          <End Role="dres" Type="DBSoftSchoolModel.Store.dres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gouvernorats">
+              <PropertyRef Name="GouvernoratID" />
+            </Principal>
+            <Dependent Role="dres">
+              <PropertyRef Name="GovernoratID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LogicielsHistorique">
+          <End Role="Logiciels" Type="DBSoftSchoolModel.Store.Logiciels" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Historiques" Type="DBSoftSchoolModel.Store.Historiques" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Logiciels">
+              <PropertyRef Name="LogicielID" />
+            </Principal>
+            <Dependent Role="Historiques">
+              <PropertyRef Name="LogicielID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lycees_FK02">
+          <End Role="Villes" Type="DBSoftSchoolModel.Store.Villes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Lycees" Type="DBSoftSchoolModel.Store.Lycees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Villes">
+              <PropertyRef Name="VilleID" />
+            </Principal>
+            <Dependent Role="Lycees">
+              <PropertyRef Name="VilleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LyceesUtilisateurs">
+          <End Role="Lycees" Type="DBSoftSchoolModel.Store.Lycees" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Utilisateurs" Type="DBSoftSchoolModel.Store.Utilisateurs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lycees">
+              <PropertyRef Name="LyceeID" />
+            </Principal>
+            <Dependent Role="Utilisateurs">
+              <PropertyRef Name="LyceeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UtilisateursHistorique">
+          <End Role="Utilisateurs" Type="DBSoftSchoolModel.Store.Utilisateurs" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Historiques" Type="DBSoftSchoolModel.Store.Historiques" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateurs">
+              <PropertyRef Name="UtilisateurId" />
+            </Principal>
+            <Dependent Role="Historiques">
+              <PropertyRef Name="UtilisateurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBSoftSchoolModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DBSoftSchoolEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="dres" EntityType="DBSoftSchoolModel.dres" />
+          <EntitySet Name="gouvernorats" EntityType="DBSoftSchoolModel.gouvernorats" />
+          <EntitySet Name="Historiques" EntityType="DBSoftSchoolModel.Historiques" />
+          <EntitySet Name="Logiciels" EntityType="DBSoftSchoolModel.Logiciels" />
+          <EntitySet Name="Lycees" EntityType="DBSoftSchoolModel.Lycees" />
+          <EntitySet Name="Utilisateurs" EntityType="DBSoftSchoolModel.Utilisateurs" />
+          <EntitySet Name="Villes" EntityType="DBSoftSchoolModel.Villes" />
+          <AssociationSet Name="FK_dresVilles" Association="DBSoftSchoolModel.FK_dresVilles">
+            <End Role="dres" EntitySet="dres" />
+            <End Role="Villes" EntitySet="Villes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gouvernoratsdres" Association="DBSoftSchoolModel.FK_gouvernoratsdres">
+            <End Role="gouvernorats" EntitySet="gouvernorats" />
+            <End Role="dres" EntitySet="dres" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LogicielsHistorique" Association="DBSoftSchoolModel.FK_LogicielsHistorique">
+            <End Role="Logiciels" EntitySet="Logiciels" />
+            <End Role="Historiques" EntitySet="Historiques" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UtilisateursHistorique" Association="DBSoftSchoolModel.FK_UtilisateursHistorique">
+            <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+            <End Role="Historiques" EntitySet="Historiques" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lycees_FK02" Association="DBSoftSchoolModel.FK_Lycees_FK02">
+            <End Role="Villes" EntitySet="Villes" />
+            <End Role="Lycees" EntitySet="Lycees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LyceesUtilisateurs" Association="DBSoftSchoolModel.FK_LyceesUtilisateurs">
+            <End Role="Lycees" EntitySet="Lycees" />
+            <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="dres">
+          <Key>
+            <PropertyRef Name="DreId" />
+          </Key>
+          <Property Name="Nom_Ar" Type="String" MaxLength="70" Unicode="true" FixedLength="false" />
+          <Property Name="Nom_Fr" Type="String" MaxLength="70" Unicode="true" FixedLength="false" />
+          <Property Name="GovernoratID" Type="Int32" Nullable="false" />
+          <Property Name="DreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Villes" Relationship="DBSoftSchoolModel.FK_dresVilles" FromRole="dres" ToRole="Villes" />
+          <NavigationProperty Name="gouvernorats" Relationship="DBSoftSchoolModel.FK_gouvernoratsdres" FromRole="dres" ToRole="gouvernorats" />
+        </EntityType>
+        <EntityType Name="gouvernorats">
+          <Key>
+            <PropertyRef Name="GouvernoratID" />
+          </Key>
+          <Property Name="Nom_Ar" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Nom_Fr" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="GouvernoratID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="dres" Relationship="DBSoftSchoolModel.FK_gouvernoratsdres" FromRole="gouvernorats" ToRole="dres" />
+        </EntityType>
+        <EntityType Name="Historiques">
+          <Key>
+            <PropertyRef Name="HistoriqueId" />
+          </Key>
+          <Property Name="HistoriqueId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="LogicielID" Type="Int32" Nullable="false" />
+          <Property Name="UtilisateurID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Logiciels" Relationship="DBSoftSchoolModel.FK_LogicielsHistorique" FromRole="Historiques" ToRole="Logiciels" />
+          <NavigationProperty Name="Utilisateurs" Relationship="DBSoftSchoolModel.FK_UtilisateursHistorique" FromRole="Historiques" ToRole="Utilisateurs" />
+        </EntityType>
+        <EntityType Name="Logiciels">
+          <Key>
+            <PropertyRef Name="LogicielID" />
+          </Key>
+          <Property Name="LogicielID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Version" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Image" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Descreption" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Prix" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Lien" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Historiques" Relationship="DBSoftSchoolModel.FK_LogicielsHistorique" FromRole="Logiciels" ToRole="Historiques" />
+        </EntityType>
+        <EntityType Name="Lycees">
+          <Key>
+            <PropertyRef Name="LyceeID" />
+          </Key>
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="Nom" Type="String" MaxLength="70" Unicode="true" FixedLength="false" />
+          <Property Name="VilleId" Type="Int32" Nullable="false" />
+          <Property Name="LyceeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Villes" Relationship="DBSoftSchoolModel.FK_Lycees_FK02" FromRole="Lycees" ToRole="Villes" />
+          <NavigationProperty Name="Utilisateurs" Relationship="DBSoftSchoolModel.FK_LyceesUtilisateurs" FromRole="Lycees" ToRole="Utilisateurs" />
+        </EntityType>
+        <EntityType Name="Utilisateurs">
+          <Key>
+            <PropertyRef Name="UtilisateurId" />
+          </Key>
+          <Property Name="UtilisateurId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Prenom" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="LyceeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Historiques" Relationship="DBSoftSchoolModel.FK_UtilisateursHistorique" FromRole="Utilisateurs" ToRole="Historiques" />
+          <NavigationProperty Name="Lycees" Relationship="DBSoftSchoolModel.FK_LyceesUtilisateurs" FromRole="Utilisateurs" ToRole="Lycees" />
+        </EntityType>
+        <EntityType Name="Villes">
+          <Key>
+            <PropertyRef Name="VilleID" />
+          </Key>
+          <Property Name="Nom_Ar" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Nom_Fr" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="DreID" Type="Int32" Nullable="false" />
+          <Property Name="VilleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="dres" Relationship="DBSoftSchoolModel.FK_dresVilles" FromRole="Villes" ToRole="dres" />
+          <NavigationProperty Name="Lycees" Relationship="DBSoftSchoolModel.FK_Lycees_FK02" FromRole="Villes" ToRole="Lycees" />
+        </EntityType>
+        <Association Name="FK_dresVilles">
+          <End Role="dres" Type="DBSoftSchoolModel.dres" Multiplicity="1" />
+          <End Role="Villes" Type="DBSoftSchoolModel.Villes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dres">
+              <PropertyRef Name="DreId" />
+            </Principal>
+            <Dependent Role="Villes">
+              <PropertyRef Name="DreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gouvernoratsdres">
+          <End Role="gouvernorats" Type="DBSoftSchoolModel.gouvernorats" Multiplicity="1" />
+          <End Role="dres" Type="DBSoftSchoolModel.dres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gouvernorats">
+              <PropertyRef Name="GouvernoratID" />
+            </Principal>
+            <Dependent Role="dres">
+              <PropertyRef Name="GovernoratID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LogicielsHistorique">
+          <End Role="Logiciels" Type="DBSoftSchoolModel.Logiciels" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Historiques" Type="DBSoftSchoolModel.Historiques" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Logiciels">
+              <PropertyRef Name="LogicielID" />
+            </Principal>
+            <Dependent Role="Historiques">
+              <PropertyRef Name="LogicielID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UtilisateursHistorique">
+          <End Role="Utilisateurs" Type="DBSoftSchoolModel.Utilisateurs" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Historiques" Type="DBSoftSchoolModel.Historiques" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateurs">
+              <PropertyRef Name="UtilisateurId" />
+            </Principal>
+            <Dependent Role="Historiques">
+              <PropertyRef Name="UtilisateurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lycees_FK02">
+          <End Role="Villes" Type="DBSoftSchoolModel.Villes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Lycees" Type="DBSoftSchoolModel.Lycees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Villes">
+              <PropertyRef Name="VilleID" />
+            </Principal>
+            <Dependent Role="Lycees">
+              <PropertyRef Name="VilleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LyceesUtilisateurs">
+          <End Role="Lycees" Type="DBSoftSchoolModel.Lycees" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Utilisateurs" Type="DBSoftSchoolModel.Utilisateurs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lycees">
+              <PropertyRef Name="LyceeID" />
+            </Principal>
+            <Dependent Role="Utilisateurs">
+              <PropertyRef Name="LyceeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBSoftSchoolModelStoreContainer" CdmEntityContainer="DBSoftSchoolEntities3">
+          <EntitySetMapping Name="dres"><EntityTypeMapping TypeName="DBSoftSchoolModel.dres"><MappingFragment StoreEntitySet="dres">
+            <ScalarProperty Name="Nom_Ar" ColumnName="Nom_Ar" />
+            <ScalarProperty Name="Nom_Fr" ColumnName="Nom_Fr" />
+            <ScalarProperty Name="GovernoratID" ColumnName="GovernoratID" />
+            <ScalarProperty Name="DreId" ColumnName="DreId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="gouvernorats"><EntityTypeMapping TypeName="DBSoftSchoolModel.gouvernorats"><MappingFragment StoreEntitySet="gouvernorats">
+            <ScalarProperty Name="Nom_Ar" ColumnName="Nom_Ar" />
+            <ScalarProperty Name="Nom_Fr" ColumnName="Nom_Fr" />
+            <ScalarProperty Name="GouvernoratID" ColumnName="GouvernoratID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Historiques"><EntityTypeMapping TypeName="DBSoftSchoolModel.Historiques"><MappingFragment StoreEntitySet="Historiques">
+            <ScalarProperty Name="HistoriqueId" ColumnName="HistoriqueId" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+            <ScalarProperty Name="LogicielID" ColumnName="LogicielID" />
+            <ScalarProperty Name="UtilisateurID" ColumnName="UtilisateurID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Logiciels"><EntityTypeMapping TypeName="DBSoftSchoolModel.Logiciels"><MappingFragment StoreEntitySet="Logiciels">
+            <ScalarProperty Name="LogicielID" ColumnName="LogicielID" />
+            <ScalarProperty Name="Nom" ColumnName="Nom" />
+            <ScalarProperty Name="Version" ColumnName="Version" />
+            <ScalarProperty Name="Image" ColumnName="Image" />
+            <ScalarProperty Name="Descreption" ColumnName="Descreption" />
+            <ScalarProperty Name="Prix" ColumnName="Prix" />
+            <ScalarProperty Name="Lien" ColumnName="Lien" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Lycees"><EntityTypeMapping TypeName="DBSoftSchoolModel.Lycees"><MappingFragment StoreEntitySet="Lycees">
+            <ScalarProperty Name="Code" ColumnName="Code" />
+            <ScalarProperty Name="Nom" ColumnName="Nom" />
+            <ScalarProperty Name="VilleId" ColumnName="VilleId" />
+            <ScalarProperty Name="LyceeID" ColumnName="LyceeID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Utilisateurs"><EntityTypeMapping TypeName="DBSoftSchoolModel.Utilisateurs"><MappingFragment StoreEntitySet="Utilisateurs">
+            <ScalarProperty Name="UtilisateurId" ColumnName="UtilisateurId" />
+            <ScalarProperty Name="Nom" ColumnName="Nom" />
+            <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+            <ScalarProperty Name="Login" ColumnName="Login" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+            <ScalarProperty Name="LyceeID" ColumnName="LyceeID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Villes"><EntityTypeMapping TypeName="DBSoftSchoolModel.Villes"><MappingFragment StoreEntitySet="Villes">
+            <ScalarProperty Name="Nom_Ar" ColumnName="Nom_Ar" />
+            <ScalarProperty Name="Nom_Fr" ColumnName="Nom_Fr" />
+            <ScalarProperty Name="DreID" ColumnName="DreID" />
+            <ScalarProperty Name="VilleID" ColumnName="VilleID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="DBSoftSchoolModel.dres" Width="1.5" PointX="3" PointY="1.125" Height="2.1725878906250005" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSoftSchoolModel.gouvernorats" Width="1.5" PointX="0.75" PointY="1.375" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSoftSchoolModel.Historiques" Width="1.5" PointX="12" PointY="1.125" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSoftSchoolModel.Logiciels" Width="1.5" PointX="9.75" PointY="5" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSoftSchoolModel.Lycees" Width="1.5" PointX="7.5" PointY="1.125" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSoftSchoolModel.Utilisateurs" Width="1.5" PointX="9.75" PointY="1" Height="2.5571907552083326" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBSoftSchoolModel.Villes" Width="1.5" PointX="5.25" PointY="1.125" Height="2.1725878906249996" IsExpanded="true" />
+        <AssociationConnector Association="DBSoftSchoolModel.FK_dresVilles" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="2.2112939453125" />
+          <ConnectorPoint PointX="5.25" PointY="2.2112939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBSoftSchoolModel.FK_gouvernoratsdres" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.2689925130208337" />
+          <ConnectorPoint PointX="3" PointY="2.2689925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBSoftSchoolModel.FK_LogicielsHistorique" ManuallyRouted="false">
+          <ConnectorPoint PointX="11.25" PointY="6.2785953776041659" />
+          <ConnectorPoint PointX="12.75" PointY="6.2785953776041659" />
+          <ConnectorPoint PointX="12.75" PointY="3.2975878906249996" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBSoftSchoolModel.FK_UtilisateursHistorique" ManuallyRouted="false">
+          <ConnectorPoint PointX="11.25" PointY="2.2112939453125" />
+          <ConnectorPoint PointX="12" PointY="2.2112939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBSoftSchoolModel.FK_Lycees_FK02" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="2.2112939453125" />
+          <ConnectorPoint PointX="7.5" PointY="2.2112939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBSoftSchoolModel.FK_LyceesUtilisateurs" ManuallyRouted="false">
+          <ConnectorPoint PointX="9" PointY="2.2112939453125" />
+          <ConnectorPoint PointX="9.75" PointY="2.2112939453125" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

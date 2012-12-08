@@ -1,0 +1,124 @@
+﻿@model IEnumerable<SoftSchool.Models.inbox>
+
+@{
+    ViewBag.Title = "OutBox";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    SoftSchool.Models.Metier met = new SoftSchool.Models.Metier();
+}
+<br />
+<table><tr>
+<td width="200"><h5><b>Boite d'envoie</b></h5></td>
+<td><a href="/Admin/AdminMail/Nouveau" class="btn btn-success fileinput-button">Nouveau</a></td>
+</tr></table>
+
+<table id="customersadmin">
+    <tr>
+        <th width="150">
+            Contact
+        </th>
+        <th width="180">
+            suject
+        </th>
+        <th>
+            Objet
+        </th>
+        
+        <th width="80">
+            date Envoie
+        </th>
+        <th width="120"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+        @met.getContactByLycéee(item.Contact.Value)
+        </td>
+        <td>
+            @if (item.subject != null)
+            {
+                string sobj = item.subject;
+                if (sobj.Length >= 25)
+                {
+                    sobj = item.subject.Substring(0, 25);
+                    sobj += "...";
+                }
+            @sobj
+            }
+            @{
+            if (item.file != null)
+            { 
+            <img src="@Url.Content("~/Content/images/piece-jointe.png")" alt="@item.file"/>
+            }
+             }
+        </td>
+        <td>
+        @if (item.objet != null)
+        {
+            string obj = item.objet;
+            if (obj.Length >= 77)
+            {
+                obj = item.objet.Substring(0, 77);
+                obj += "...";
+            }
+            @obj
+        }
+        </td>
+       
+        <td>
+       @if(item.date_envoie!=null)
+       {
+            @item.date_envoie.Value.ToShortDateString();
+       }
+        </td>
+        <td>
+            @Html.ActionLink("Details", "DetailsOutBox", new { id = item.ID }) |
+            @Html.ActionLink("Supprimer", "Delete", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+
+
+@{
+    if (ViewBag.NbrPage != 1)
+    {
+        <div class="pagination">
+        @for (int i = 1; i <= ViewBag.NbrPage; i++)
+        {
+            if (i != ViewBag.current)
+            {
+		        <a href="/Admin/AdminMail/OutBox/?page=@i" class="page gradient">@i</a>
+            }
+            else
+            {
+                <a class="page active">@i</a>
+            }
+        }
+        </div>
+    }
+    else
+    {
+        <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+     <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+     <br />
+    <br />
+    <br />
+    <br />
+   }
+}

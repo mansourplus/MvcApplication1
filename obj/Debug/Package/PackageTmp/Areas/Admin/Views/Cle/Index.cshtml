@@ -1,0 +1,120 @@
+﻿@model Tuple<IEnumerable<SoftSchool.Models.activation>, SoftSchool.Models.RechercheCleLyce>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<br />
+<div>
+<form action="/Admin/Cle/rechreche" method="post">
+    <table width="100%">
+        <tr>
+            <td valign="middle"><b>Lycées:</b></td>
+            <td  valign="middle">
+                <input type="text" name="Lycees" value="@Model.Item2.Lycees"/>
+            </td>
+            <td valign="middle"><b>Logiciel:</b></td>
+            <td  valign="middle">
+                <input type="text" name="Logiciel" value="@Model.Item2.Logiciel" />
+            </td>
+            <td  valign="middle">
+                <button type="submit" class="btn btn-primary start">
+                    <i class="icon-upload icon-white"></i>
+                    <span>Recherche</span>
+                </button>
+            </td>
+        </tr>
+    </table>
+</form>
+</div>
+<table id="customersadmin">
+    <tr>
+        <th>
+            Logiciel
+        </th>
+        <th>
+            Cle Lycées
+        </th>
+        <th>
+            date
+        </th>
+        <th>
+            Cle Activation
+        </th>
+        <th>
+            date Réponse
+        </th>
+        <th>
+            Lycées
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Item1) {
+    string alt = "";
+    if (item.Cle_Reponse == null)
+    {
+        alt = "alt";
+    }
+    <tr class="@alt">
+        <td>
+            @Html.DisplayFor(modelItem => item.logiciels.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cle_Demander)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_demande)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cle_Reponse)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.date_reponse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.utilisateur.lycees.Nom)
+        </td>
+        <td>
+        @{
+    if(item.Cle_Reponse!=null)
+    {
+        <a href="/Admin/Cle/Repondre/@item.Id" class="btn btn-primary start">Modifier&nbsp</a>
+    }
+    else
+    {
+        <a href="/Admin/Cle/Repondre/@item.Id" class="btn btn-primary start">Répondre</a>
+    }
+         }
+        <a href="/Admin/Cle/Details/@item.Id" class="btn btn-success fileinput-button">Details</a>
+        <a href="/Admin/Cle/Delete/@item.Id" class="btn btn-danger delete">Supprimer</a>
+            
+        </td>
+    </tr>
+}
+
+</table>
+@{
+    if (ViewBag.NbrPage != 1)
+    {
+        <div class="pagination">
+        @for (int i = 1; i <= ViewBag.NbrPage; i++)
+        {
+            if (i != ViewBag.current)
+            {
+		        <a href="/Admin/Cle/index/?page=@i&l=@ViewBag.Lycees&l1=@ViewBag.Logiciel" class="page gradient">@i</a>
+            }
+            else
+            {
+                <a class="page active">@i</a>
+            }
+        }
+        </div>
+    }
+    else
+    {
+        <br />
+    <br />
+    }
+}

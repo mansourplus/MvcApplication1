@@ -1,0 +1,57 @@
+﻿@model SoftSchool.Models.inbox
+
+@{
+    ViewBag.Title = "Repondre";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<br />
+<br />
+@using (Html.BeginForm("Repondre", "AdminMail", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <input data-val="true"  id="Contact" name="Contact" type="hidden" value="@ViewBag.contact" />
+   
+    
+     <table>
+        <tr>
+            <td>
+                Sujet:
+            </td>
+            <td>
+                <input class="subject" id="subject" name="subject" type="text" value="@Model.subject" />
+                @Html.ValidationMessageFor(model => model.subject)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Pièce Jointe:
+            </td>
+            <td>
+                <input type="file"  id="file" name="file" />
+                @Html.ValidationMessageFor(model => model.file)
+            </td>
+        </tr>
+         <tr>
+            <td>
+                
+            </td>
+            <td>
+                <textarea cols="100" id="objet" name="objet" rows="15">@if (Model.objet != null){@Model.objet;}</textarea>                @Html.ValidationMessageFor(model => model.objet)
+            </td>
+        </tr>
+        <tr>
+        <td>
+    
+        </td>
+        <td>
+            <p>
+                <input type="submit" class="btn btn-success fileinput-button" value="Envoyer" />
+                <a href="/Admin/AdminMail" >                <input type="button" class="btn btn-info upload" value="Retour" />                </a>            </p>
+        </td>
+        </tr>
+    </table>
+    
+}

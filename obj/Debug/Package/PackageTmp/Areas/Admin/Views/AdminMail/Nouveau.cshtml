@@ -1,0 +1,250 @@
+﻿@model SoftSchool.Models.inbox
+
+@{
+    ViewBag.Title = "Nouveau";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm("Nouveau", "AdminMail", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <!--
+    <fieldset>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Contact)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Contact)
+            @Html.ValidationMessageFor(model => model.Contact)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.subject)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.subject)
+            @Html.ValidationMessageFor(model => model.subject)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.objet)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.objet)
+            @Html.ValidationMessageFor(model => model.objet)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LogicielID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LogicielID)
+            @Html.ValidationMessageFor(model => model.LogicielID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.cle)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.cle)
+            @Html.ValidationMessageFor(model => model.cle)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Reponse)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Reponse)
+            @Html.ValidationMessageFor(model => model.Reponse)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserId)
+            @Html.ValidationMessageFor(model => model.UserId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.file)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.file)
+            @Html.ValidationMessageFor(model => model.file)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.date_envoie)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.date_envoie)
+            @Html.ValidationMessageFor(model => model.date_envoie)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+    
+    -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Direction").change(function () {
+                var idModel = $(this).val();
+                $.getJSON("/Account/GetVilles", { id: idModel },
+                    function (carData) {
+                        var select = $("#Ville");
+                        select.empty();
+                        var select1 = $("#IDLycees");
+                        select1.empty();
+                        select.append($('<option/>', {
+                            value: 0,
+                            text: "إختر المدينة..."
+                        }));
+                        $.each(carData, function (index, itemData) {
+
+                            select.append($('<option/>', {
+                                value: itemData.Value,
+                                text: itemData.Text
+                            }));
+                        });
+                    });
+            });
+            $("#Ville").change(function () {
+                var idColour = $(this).val();
+                $.getJSON("/Account/GetLycees", { id: idColour },
+                    function (modelData) {
+                        var select = $("#IDLycees");
+                        select.empty();
+                        select.append($('<option/>', {
+                            value: 0,
+                            text: "إختر المؤسسة..."
+                        }));
+                        $.each(modelData, function (index, itemData) {
+
+                            select.append($('<option/>', {
+                                value: itemData.Value,
+                                text: itemData.Text
+                            }));
+                        });
+                    });
+                });
+
+                $("#IDLycees").change(function () {
+                    var idColour = $(this).val();
+                    $.getJSON("/Account/GetUSERS", { id: idColour },
+                    function (modelData) {
+                        var select = $("#Contact");
+                        select.empty();
+                        select.append($('<option/>', {
+                            value: 0,
+                            text: "إختر المستخدم..."
+                        }));
+                        $.each(modelData, function (index, itemData) {
+
+                            select.append($('<option/>', {
+                                value: itemData.Value,
+                                text: itemData.Text
+                            }));
+                        });
+                    });
+                });
+        });
+
+</script>
+    
+    
+     <table>
+        <tr>
+            <td>
+                Direction:
+            </td>
+            <td>
+                <select id="Direction" name="Direction">
+        <option value="-1">إختر الممندوبية...</option>
+        @{
+            foreach(SoftSchool.Models.dres dre in ViewBag.Dres)
+            {
+                <option value="@dre.DreId">@dre.Nom_Ar</option>
+            }
+         }
+         </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Ville:
+            </td>
+            <td>
+                 @Html.DropDownList("Ville", new SelectList(Enumerable.Empty<SelectListItem>(), "VilleID", "Nom_Ar"))
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Lycée:
+            </td>
+            <td>
+                 @Html.DropDownList("IDLycees", new SelectList(Enumerable.Empty<SelectListItem>(), "Code", "Nom"))
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Contact:
+            </td>
+            <td>
+                 @Html.DropDownList("Contact", new SelectList(Enumerable.Empty<SelectListItem>(), "Contact", "Nom"))
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Sujet:
+            </td>
+            <td>
+            @{
+                string subj="";
+            if (Model.subject != null) { subj = Model.subject; }
+            }
+                <input class="subject" id="subject" name="subject" type="text" value="@subj" />
+                @Html.ValidationMessageFor(model => model.subject)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Pièce Jointe:
+            </td>
+            <td>
+                <input type="file"  id="file" name="file" />
+                @Html.ValidationMessageFor(model => model.file)
+            </td>
+        </tr>
+         <tr>
+            <td>
+                
+            </td>
+            <td>
+                <textarea cols="100" id="objet" name="objet" rows="15">@if (Model.objet != null)
+                                                                       {@Model.objet;
+                                                                       }</textarea>                @Html.ValidationMessageFor(model => model.objet)
+            </td>
+        </tr>
+        <tr>
+        <td>
+    
+        </td>
+        <td>
+            <p>
+                <input type="submit" class="btn btn-success fileinput-button" value="Envoyer" />
+                <a href="/Admin/AdminMail" >                <input type="button" class="btn btn-info upload" value="Retour" />                </a>            </p>
+        </td>
+        </tr>
+    </table>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

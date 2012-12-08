@@ -1,0 +1,32 @@
+﻿@model SoftSchool.Models.dres
+
+@{
+    ViewBag.Title = "Details";
+    Layout = Url.Content("~/Areas/Admin/Views/Shared/_Layout.cshtml");
+}
+
+<h2>Détaille Direction Régionale.</h2>
+
+<fieldset>
+
+    <div class="display-label">Nom_Ar</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nom_Ar)
+    </div>
+
+    <div class="display-label">Nom_Fr</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nom_Fr)
+    </div>
+
+    <div class="display-label">gouvernorats</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.gouvernorats.Nom_Ar)
+    </div>
+</fieldset>
+<br /><br />
+<p>
+<a href="/Admin/Direction/Edit/@Model.DreId" class="btn btn-primary start">Modifier</a> 
+    <a href="/Admin/Direction" class="btn btn-warning cancel">Retour</a>
+    
+</p>

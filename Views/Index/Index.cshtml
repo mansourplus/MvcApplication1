@@ -1,0 +1,35 @@
+﻿@model IEnumerable<SoftSchool.Models.logiciels>
+@{
+    ViewBag.Title = "Soft School";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="box-list" dir="rtl">
+                    @foreach (var item in Model)
+                    {
+                        <li dir="rtl">
+                        <div class="box1" dir="rtl">
+	                    <div class="inner" dir="rtl">
+                        <!--<a href="#"><img src="@Url.Content(@"~\" + item.Image)"  width="100" height="100" /></a>-->
+			                    <h5 dir="rtl"><b> @Html.DisplayFor(modelItem => item.Nom)</b></h5>
+			                    <p  dir="rtl">
+                                @{
+                          string description = item.Descreption;
+                          if (description.Length > 50)
+                          {
+                              description = description.Substring(0, 50);
+                              description = description + "...";
+                          }
+                          description = description + "<p dir=\"ltr\"><a href=\"/Index/DetailLog/" + item.LogicielID + "\">Afficher la suite</p></a>";
+                          HtmlString str = new HtmlString(description.Replace("\n", "<br />"));
+       
+                            }
+                            @str
+                                    </p>
+		                    </div>
+	                    </div>
+                        </li>
+    
+                    }
+                    </ul>
+

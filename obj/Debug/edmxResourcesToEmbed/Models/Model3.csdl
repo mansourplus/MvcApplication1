@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBSoftSchoolModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="DBSoftSchoolEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="aspnet_Applications" EntityType="DBSoftSchoolModel.aspnet_Applications" />
+    <EntitySet Name="aspnet_Membership" EntityType="DBSoftSchoolModel.aspnet_Membership" />
+    <EntitySet Name="aspnet_Paths" EntityType="DBSoftSchoolModel.aspnet_Paths" />
+    <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="DBSoftSchoolModel.aspnet_PersonalizationAllUsers" />
+    <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="DBSoftSchoolModel.aspnet_PersonalizationPerUser" />
+    <EntitySet Name="aspnet_Profile" EntityType="DBSoftSchoolModel.aspnet_Profile" />
+    <EntitySet Name="aspnet_Roles" EntityType="DBSoftSchoolModel.aspnet_Roles" />
+    <EntitySet Name="aspnet_SchemaVersions" EntityType="DBSoftSchoolModel.aspnet_SchemaVersions" />
+    <EntitySet Name="aspnet_Users" EntityType="DBSoftSchoolModel.aspnet_Users" />
+    <EntitySet Name="aspnet_WebEvent_Events" EntityType="DBSoftSchoolModel.aspnet_WebEvent_Events" />
+    <EntitySet Name="dres" EntityType="DBSoftSchoolModel.dres" />
+    <EntitySet Name="gouvernorats" EntityType="DBSoftSchoolModel.gouvernorats" />
+    <EntitySet Name="Historiques" EntityType="DBSoftSchoolModel.Historiques" />
+    <EntitySet Name="Logiciels" EntityType="DBSoftSchoolModel.Logiciels" />
+    <EntitySet Name="Lycees" EntityType="DBSoftSchoolModel.Lycees" />
+    <EntitySet Name="sysdiagrams" EntityType="DBSoftSchoolModel.sysdiagrams" />
+    <EntitySet Name="Utilisateurs" EntityType="DBSoftSchoolModel.Utilisateurs" />
+    <EntitySet Name="Villes" EntityType="DBSoftSchoolModel.Villes" />
+    <AssociationSet Name="FK__aspnet_Me__Appli__5BAD9CC8" Association="DBSoftSchoolModel.FK__aspnet_Me__Appli__5BAD9CC8">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pa__Appli__14E61A24" Association="DBSoftSchoolModel.FK__aspnet_Pa__Appli__14E61A24">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Ro__Appli__7E02B4CC" Association="DBSoftSchoolModel.FK__aspnet_Ro__Appli__7E02B4CC">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__Appli__47A6A41B" Association="DBSoftSchoolModel.FK__aspnet_Us__Appli__47A6A41B">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Me__UserI__5CA1C101" Association="DBSoftSchoolModel.FK__aspnet_Me__UserI__5CA1C101">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__PathI__1C873BEC" Association="DBSoftSchoolModel.FK__aspnet_Pe__PathI__1C873BEC">
+      <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+      <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__PathI__22401542" Association="DBSoftSchoolModel.FK__aspnet_Pe__PathI__22401542">
+      <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+      <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__UserI__2334397B" Association="DBSoftSchoolModel.FK__aspnet_Pe__UserI__2334397B">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pr__UserI__72910220" Association="DBSoftSchoolModel.FK__aspnet_Pr__UserI__72910220">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dresVilles" Association="DBSoftSchoolModel.FK_dresVilles">
+      <End Role="dres" EntitySet="dres" />
+      <End Role="Villes" EntitySet="Villes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gouvernoratsdres" Association="DBSoftSchoolModel.FK_gouvernoratsdres">
+      <End Role="gouvernorats" EntitySet="gouvernorats" />
+      <End Role="dres" EntitySet="dres" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lycees_FK02" Association="DBSoftSchoolModel.FK_Lycees_FK02">
+      <End Role="Villes" EntitySet="Villes" />
+      <End Role="Lycees" EntitySet="Lycees" />
+    </AssociationSet>
+    <AssociationSet Name="aspnet_UsersInRoles" Association="DBSoftSchoolModel.aspnet_UsersInRoles">
+      <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="aspnet_Applications">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="LoweredApplicationName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="aspnet_Membership" Relationship="DBSoftSchoolModel.FK__aspnet_Me__Appli__5BAD9CC8" FromRole="aspnet_Applications" ToRole="aspnet_Membership" />
+    <NavigationProperty Name="aspnet_Paths" Relationship="DBSoftSchoolModel.FK__aspnet_Pa__Appli__14E61A24" FromRole="aspnet_Applications" ToRole="aspnet_Paths" />
+    <NavigationProperty Name="aspnet_Roles" Relationship="DBSoftSchoolModel.FK__aspnet_Ro__Appli__7E02B4CC" FromRole="aspnet_Applications" ToRole="aspnet_Roles" />
+    <NavigationProperty Name="aspnet_Users" Relationship="DBSoftSchoolModel.FK__aspnet_Us__Appli__47A6A41B" FromRole="aspnet_Applications" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="PasswordFormat" Type="Int32" Nullable="false" />
+    <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="MobilePIN" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="LoweredEmail" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="PasswordQuestion" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="PasswordAnswer" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+    <Property Name="IsLockedOut" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="DateTime" Nullable="false" />
+    <Property Name="LastPasswordChangedDate" Type="DateTime" Nullable="false" />
+    <Property Name="LastLockoutDate" Type="DateTime" Nullable="false" />
+    <Property Name="FailedPasswordAttemptCount" Type="Int32" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="DateTime" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="Int32" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="DateTime" Nullable="false" />
+    <Property Name="Comment" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="IDLycees" Type="Int32" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="DBSoftSchoolModel.FK__aspnet_Me__Appli__5BAD9CC8" FromRole="aspnet_Membership" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="aspnet_Users" Relationship="DBSoftSchoolModel.FK__aspnet_Me__UserI__5CA1C101" FromRole="aspnet_Membership" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_Paths">
+    <Key>
+      <PropertyRef Name="PathId" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="PathId" Type="Guid" Nullable="false" />
+    <Property Name="Path" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="LoweredPath" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="DBSoftSchoolModel.FK__aspnet_Pa__Appli__14E61A24" FromRole="aspnet_Paths" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="aspnet_PersonalizationAllUsers" Relationship="DBSoftSchoolModel.FK__aspnet_Pe__PathI__1C873BEC" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationAllUsers" />
+    <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="DBSoftSchoolModel.FK__aspnet_Pe__PathI__22401542" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationPerUser" />
+  </EntityType>
+  <EntityType Name="aspnet_PersonalizationAllUsers">
+    <Key>
+      <PropertyRef Name="PathId" />
+    </Key>
+    <Property Name="PathId" Type="Guid" Nullable="false" />
+    <Property Name="PageSettings" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="aspnet_Paths" Relationship="DBSoftSchoolModel.FK__aspnet_Pe__PathI__1C873BEC" FromRole="aspnet_PersonalizationAllUsers" ToRole="aspnet_Paths" />
+  </EntityType>
+  <EntityType Name="aspnet_PersonalizationPerUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="PathId" Type="Guid" />
+    <Property Name="UserId" Type="Guid" />
+    <Property Name="PageSettings" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="aspnet_Paths" Relationship="DBSoftSchoolModel.FK__aspnet_Pe__PathI__22401542" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Paths" />
+    <NavigationProperty Name="aspnet_Users" Relationship="DBSoftSchoolModel.FK__aspnet_Pe__UserI__2334397B" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_Profile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="PropertyNames" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="PropertyValuesString" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="PropertyValuesBinary" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="aspnet_Users" Relationship="DBSoftSchoolModel.FK__aspnet_Pr__UserI__72910220" FromRole="aspnet_Profile" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="RoleId" Type="Guid" Nullable="false" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="LoweredRoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="DBSoftSchoolModel.FK__aspnet_Ro__Appli__7E02B4CC" FromRole="aspnet_Roles" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="aspnet_Users" Relationship="DBSoftSchoolModel.aspnet_UsersInRoles" FromRole="aspnet_Roles" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_SchemaVersions">
+    <Key>
+      <PropertyRef Name="Feature" />
+      <PropertyRef Name="CompatibleSchemaVersion" />
+    </Key>
+    <Property Name="Feature" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="CompatibleSchemaVersion" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="IsCurrentVersion" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="LoweredUserName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="MobileAlias" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+    <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
+    <Property Name="LastActivityDate" Type="DateTime" Nullable="false" />
+    <Property Name="LyceeID" Type="Int32" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="DBSoftSchoolModel.FK__aspnet_Us__Appli__47A6A41B" FromRole="aspnet_Users" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="aspnet_Membership" Relationship="DBSoftSchoolModel.FK__aspnet_Me__UserI__5CA1C101" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
+    <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="DBSoftSchoolModel.FK__aspnet_Pe__UserI__2334397B" FromRole="aspnet_Users" ToRole="aspnet_PersonalizationPerUser" />
+    <NavigationProperty Name="aspnet_Profile" Relationship="DBSoftSchoolModel.FK__aspnet_Pr__UserI__72910220" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
+    <NavigationProperty Name="aspnet_Roles" Relationship="DBSoftSchoolModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
+  </EntityType>
+  <EntityType Name="aspnet_WebEvent_Events">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="true" />
+    <Property Name="EventTimeUtc" Type="DateTime" Nullable="false" />
+    <Property Name="EventTime" Type="DateTime" Nullable="false" />
+    <Property Name="EventType" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="EventSequence" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+    <Property Name="EventOccurrence" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+    <Property Name="EventCode" Type="Int32" Nullable="false" />
+    <Property Name="EventDetailCode" Type="Int32" Nullable="false" />
+    <Property Name="Message" Type="String" MaxLength="1024" Unicode="true" FixedLength="false" />
+    <Property Name="ApplicationPath" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="ApplicationVirtualPath" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="MachineName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="RequestUrl" Type="String" MaxLength="1024" Unicode="true" FixedLength="false" />
+    <Property Name="ExceptionType" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="Details" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="dres">
+    <Key>
+      <PropertyRef Name="DreId" />
+    </Key>
+    <Property Name="Nom_Ar" Type="String" MaxLength="70" Unicode="true" FixedLength="false" />
+    <Property Name="Nom_Fr" Type="String" MaxLength="70" Unicode="true" FixedLength="false" />
+    <Property Name="GovernoratID" Type="Int32" Nullable="false" />
+    <Property Name="DreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Villes" Relationship="DBSoftSchoolModel.FK_dresVilles" FromRole="dres" ToRole="Villes" />
+    <NavigationProperty Name="gouvernorats" Relationship="DBSoftSchoolModel.FK_gouvernoratsdres" FromRole="dres" ToRole="gouvernorats" />
+  </EntityType>
+  <EntityType Name="gouvernorats">
+    <Key>
+      <PropertyRef Name="GouvernoratID" />
+    </Key>
+    <Property Name="Nom_Ar" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Nom_Fr" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="GouvernoratID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="dres" Relationship="DBSoftSchoolModel.FK_gouvernoratsdres" FromRole="gouvernorats" ToRole="dres" />
+  </EntityType>
+  <EntityType Name="Historiques">
+    <Key>
+      <PropertyRef Name="HistoriqueId" />
+    </Key>
+    <Property Name="HistoriqueId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="LogicielID" Type="Int32" Nullable="false" />
+    <Property Name="UtilisateurID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Logiciels">
+    <Key>
+      <PropertyRef Name="LogicielID" />
+    </Key>
+    <Property Name="LogicielID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="Nom" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Version" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Image" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Descreption" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Prix" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Lien" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+  </EntityType>
+  <EntityType Name="Lycees">
+    <Key>
+      <PropertyRef Name="LyceeID" />
+    </Key>
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="Nom" Type="String" MaxLength="70" Unicode="true" FixedLength="false" />
+    <Property Name="VilleId" Type="Int32" Nullable="false" />
+    <Property Name="LyceeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Villes" Relationship="DBSoftSchoolModel.FK_Lycees_FK02" FromRole="Lycees" ToRole="Villes" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="principal_id" Nullable="false" Type="Int32" />
+    <Property Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" MaxLength="Max" FixedLength="false" Type="Binary" />
+  </EntityType>
+  <EntityType Name="Utilisateurs">
+    <Key>
+      <PropertyRef Name="UtilisateurId" />
+    </Key>
+    <Property Name="UtilisateurId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="Nom" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Prenom" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Login" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Password" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="LyceeID" Nullable="false" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Villes">
+    <Key>
+      <PropertyRef Name="VilleID" />
+    </Key>
+    <Property Name="Nom_Ar" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="Nom_Fr" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="DreID" Type="Int32" Nullable="false" />
+    <Property Name="VilleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="dres" Relationship="DBSoftSchoolModel.FK_dresVilles" FromRole="Villes" ToRole="dres" />
+    <NavigationProperty Name="Lycees" Relationship="DBSoftSchoolModel.FK_Lycees_FK02" FromRole="Villes" ToRole="Lycees" />
+  </EntityType>
+  <Association Name="FK__aspnet_Me__Appli__5BAD9CC8">
+    <End Role="aspnet_Applications" Type="DBSoftSchoolModel.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="DBSoftSchoolModel.aspnet_Membership" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pa__Appli__14E61A24">
+    <End Role="aspnet_Applications" Type="DBSoftSchoolModel.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Paths" Type="DBSoftSchoolModel.aspnet_Paths" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Paths">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Ro__Appli__7E02B4CC">
+    <End Role="aspnet_Applications" Type="DBSoftSchoolModel.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Roles" Type="DBSoftSchoolModel.aspnet_Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Roles">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__Appli__47A6A41B">
+    <End Role="aspnet_Applications" Type="DBSoftSchoolModel.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Users" Type="DBSoftSchoolModel.aspnet_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Users">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Me__UserI__5CA1C101">
+    <End Role="aspnet_Users" Type="DBSoftSchoolModel.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="DBSoftSchoolModel.aspnet_Membership" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__PathI__1C873BEC">
+    <End Role="aspnet_Paths" Type="DBSoftSchoolModel.aspnet_Paths" Multiplicity="1" />
+    <End Role="aspnet_PersonalizationAllUsers" Type="DBSoftSchoolModel.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Paths">
+        <PropertyRef Name="PathId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationAllUsers">
+        <PropertyRef Name="PathId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__PathI__22401542">
+    <End Role="aspnet_Paths" Type="DBSoftSchoolModel.aspnet_Paths" Multiplicity="0..1" />
+    <End Role="aspnet_PersonalizationPerUser" Type="DBSoftSchoolModel.aspnet_PersonalizationPerUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Paths">
+        <PropertyRef Name="PathId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationPerUser">
+        <PropertyRef Name="PathId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__UserI__2334397B">
+    <End Role="aspnet_Users" Type="DBSoftSchoolModel.aspnet_Users" Multiplicity="0..1" />
+    <End Role="aspnet_PersonalizationPerUser" Type="DBSoftSchoolModel.aspnet_PersonalizationPerUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationPerUser">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pr__UserI__72910220">
+    <End Role="aspnet_Users" Type="DBSoftSchoolModel.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Profile" Type="DBSoftSchoolModel.aspnet_Profile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Profile">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dresVilles">
+    <End Role="dres" Type="DBSoftSchoolModel.dres" Multiplicity="1" />
+    <End Role="Villes" Type="DBSoftSchoolModel.Villes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dres">
+        <PropertyRef Name="DreId" />
+      </Principal>
+      <Dependent Role="Villes">
+        <PropertyRef Name="DreID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gouvernoratsdres">
+    <End Role="gouvernorats" Type="DBSoftSchoolModel.gouvernorats" Multiplicity="1" />
+    <End Role="dres" Type="DBSoftSchoolModel.dres" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gouvernorats">
+        <PropertyRef Name="GouvernoratID" />
+      </Principal>
+      <Dependent Role="dres">
+        <PropertyRef Name="GovernoratID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lycees_FK02">
+    <End Role="Villes" Type="DBSoftSchoolModel.Villes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Lycees" Type="DBSoftSchoolModel.Lycees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Villes">
+        <PropertyRef Name="VilleID" />
+      </Principal>
+      <Dependent Role="Lycees">
+        <PropertyRef Name="VilleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="aspnet_UsersInRoles">
+    <End Role="aspnet_Roles" Type="DBSoftSchoolModel.aspnet_Roles" Multiplicity="*" />
+    <End Role="aspnet_Users" Type="DBSoftSchoolModel.aspnet_Users" Multiplicity="*" />
+  </Association>
+</Schema>

@@ -1,0 +1,33 @@
+﻿@model SoftSchool.Models.inbox
+
+@{
+    ViewBag.Title = "Detailsoutbox";
+    Layout = "~/Views/Shared/_Layout_directeur.cshtml";
+}
+<b>
+    <a href="/Directeur/Mail/Send" class="btn btn-warning cancel">جديد</a>
+    <a href="/Directeur/Mail" class="btn btn-warning cancel">الواردات</a>
+    <a href="/Directeur/Mail/outbox" class="btn btn-warning cancel">الصادرات</a>
+</b>
+<div class="entmail">
+<div class="fright">
+    @Html.DisplayFor(model => model.subject)<br />
+    @Html.DisplayFor(model => model.date_envoie)
+    <br />
+    @if (Model.file != null)
+    {
+    <Z>الوثائق المرفقة: < <a href="@Url.Content("~/Files/Joint/"+@Model.file)">@Html.DisplayFor(model => model.file) </a> > </Z>
+    }
+</div>
+</div>
+    <div class="mail">
+        @if (Model.objet!=null)
+        {
+            HtmlString str = new HtmlString(Model.objet.Replace("\n", "<br />"));
+            <h7> @str</h7>
+        }
+       
+        
+    </div>
+
+

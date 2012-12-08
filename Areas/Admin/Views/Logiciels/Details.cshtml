@@ -1,0 +1,34 @@
+﻿@model SoftSchool.Models.logiciels
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2></h2>
+
+<fieldset>
+    <legend> @Html.DisplayFor(model => model.Nom)  @Html.DisplayFor(model => model.Version)</legend>
+    <div class="display-field">
+    <img src="@Url.Content(@"~\\"+Model.Image)" />
+    </div>
+    
+    <div class="display-label">Descreption</div>
+    <div class="display-field">
+        @{
+            HtmlString str = new HtmlString(Model.Descreption.Replace("\n","<br />"));
+        }
+        @str
+    </div>
+
+    <div class="display-label">Prix</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Prix)
+    </div>
+    <br />
+    <a href="@Url.Content("~\\" + Html.DisplayFor(model => model.Lien))" class="btn btn-primary start">Télécharger</a>
+    <a href="/Admin/Logiciels/Edit/@Model.LogicielID" class="btn btn-primary start">Modifier</a> 
+    <a href="/Admin/Logiciels" class="btn btn-warning cancel">Retour</a>
+</fieldset>
+<p>
+</p>

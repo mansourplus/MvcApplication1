@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SoftSchool.Models.dres>
+
+@{
+    ViewBag.Title = "Directions Régionales";
+    Layout = Url.Content("~/Areas/Admin/Views/Shared/_Layout.cshtml");
+}
+
+
+<fieldset>
+    <legend>Directions</legend>
+<p>
+    <a href="/Admin/Direction/Create"  class="btn btn-primary start">Ajouter</a></p>
+<table border="1px">
+    <tr>
+        <th>
+            Libelle Arabe
+        </th>
+        <th>
+            Libelle Français
+        </th>
+        <th>
+            Gouvernorat
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom_Ar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom_Fr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gouvernorats.Nom_Ar)
+        </td>
+        <td>
+           
+            <a href="/Admin/Direction/Edit/@item.DreId" class="btn btn-success fileinput-button">Modifier</a> 
+            <a href="/Admin/Direction/Details/@item.DreId" class="btn btn-success fileinput-button">Details</a> 
+            <a href="/Admin/Direction/Delete/@item.DreId" class="btn btn-danger delete">Supprimer</a> 
+            <a href="/Admin/Direction/Lycees/@item.DreId" class="btn btn-primary start">Lycées</a>
+        </td>
+    </tr>
+}
+
+</table>
+</fieldset>

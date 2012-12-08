@@ -1,0 +1,81 @@
+﻿@model SoftSchool.Models.activation
+
+@{
+    ViewBag.Title = "Repondre";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<br />
+<br />
+<br />
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.IDuser)
+        @Html.HiddenFor(model => model.date_demande)
+        @Html.HiddenFor(model => model.LogicelId)
+        @Html.HiddenFor(model => model.Cle_Demander)
+ <table>
+ <tr>
+ <td width="120">
+           <b> Logicel:</b>
+ </td>
+ <td>
+             @Model.logiciels.Nom
+ </td>
+ </tr>
+
+ <tr>
+ <td>
+            <B>Code:</B>
+ </td>
+ <td>
+             @Model.Cle_Demander
+ </td>
+ </tr>
+
+ <tr>
+ <td>
+            <B>Clé d'activaton:</B>
+ </td>
+ <td>
+            @Html.EditorFor(model => model.Cle_Reponse)
+            @Html.ValidationMessageFor(model => model.Cle_Reponse)
+ </td>
+ </tr>
+ <tr> 
+ <td>
+ </td>
+ <td>
+            <button type="submit" class="btn btn-primary start">
+                    <i class="icon-upload icon-white"></i>
+                    <span>Enregisrer</span>
+                </button>
+ </td>
+ </tr>
+ </table>
+
+        
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<!--
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+-->

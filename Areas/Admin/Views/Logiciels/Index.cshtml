@@ -1,0 +1,61 @@
+﻿@model IEnumerable<SoftSchool.Models.logiciels>
+
+@{
+    ViewBag.Title = "Logiciels";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<fieldset>
+
+<p>
+
+<a href="/Admin/Logiciels/Create" class="btn btn-primary start">Ajouter Logiciel</a>
+</p>
+<table id="customersadmin">
+    <tr>
+    <th width="70"></th>
+        <th width="100">
+            Libelle
+        </th>
+        
+        
+        <th width="30%">
+            Descreption
+        </th>
+        <th width="50">
+            Prix
+        </th>
+        
+        <th width="240"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+    <td align="center">
+        <img src="@Url.Content("~\\"+item.Image)" alt="@item.Nom" width="60" height="60"/>
+        
+        </td>
+        <td valign="top" align="center">
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        
+        
+        <td valign="top" align="center">
+           @{
+    HtmlString str = new HtmlString(item.Descreption.Replace("\n", "<br />"));
+        }
+        @str
+        </td>
+        <td valign="top" align="center">
+            @Html.DisplayFor(modelItem => item.Prix)
+        </td>
+        <td align="center">
+        <a href="@Url.Content("~\\" + item.Lien)" class="btn btn-primary start">Télécharger</a>
+            <a href="/Admin/Logiciels/Edit/@item.LogicielID" class="btn btn-success fileinput-button">Modifier</a>
+            <a href="/Admin/Logiciels/Details/@item.LogicielID" class="btn btn-success fileinput-button">Details</a> 
+            <a href="/Admin/Logiciels/Delete/@item.LogicielID" class="btn btn-danger delete">Supprimer</a>        </td>
+    </tr>
+}
+
+</table>
+</fieldset>

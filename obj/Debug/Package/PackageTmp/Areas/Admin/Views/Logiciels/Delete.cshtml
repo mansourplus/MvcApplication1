@@ -1,0 +1,52 @@
+﻿@model SoftSchool.Models.logiciels
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Logiciels</legend>
+
+    <div class="display-label">Nom</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nom)
+    </div>
+
+    <div class="display-label">Version</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Version)
+    </div>
+
+    <div class="display-label">Image</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Image)
+    </div>
+
+    <div class="display-label">Descreption</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descreption)
+    </div>
+
+    <div class="display-label">Prix</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Prix)
+    </div>
+
+    <div class="display-label">Lien</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Lien)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+    <button type="submit" class="btn btn-danger delete">
+                    <i class="icon-upload icon-white"></i>
+                    <span>Supprimer</span>
+                </button>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

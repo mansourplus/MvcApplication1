@@ -1,0 +1,36 @@
+﻿@model SoftSchool.Models.inbox
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    SoftSchool.Models.Metier met = new SoftSchool.Models.Metier();
+}
+<br />
+<div class="entmail">
+<div class="fleft">
+        <h6> <b>@met.getContactByLycéee(Model.UserId)</b> <b1>< @met.getContactByNom(Model.UserId) ></b1></h6>
+       
+        <br />
+        <h7><b1>@Model.subject</b1></h7>  @if (Model.file != null)
+    {
+    <a href="@Url.Content("~/Files/Joint/"+@Model.file)" class="btn btn-info upload"><img src="@Url.Content("~/Content/images/piece-jointe.png")" alt="@Model.file"/> Télécharger Pièce Jointe</a>
+    }
+        
+    &nbsp
+</div>
+<!--
+<div class="fright">
+<a href="/Admin/AdminMail/Repondre/@Model.ID" class="btn btn-success upload"><span width="70">Répondre</span> </a><br /><br />
+    <a href="/Admin/AdminMail" class="btn btn-info upload"><span width="100">&nbsp Retour&nbsp&nbsp</span></a>
+</div>-->
+</div>
+<div class="mail">
+    <div>
+    @if(Model.objet!=null){
+        HtmlString str = new HtmlString(Model.objet.Replace("\n", "<br />"));
+        <h7> @str</h7>
+    }
+       
+        
+    </div>
+</div>
